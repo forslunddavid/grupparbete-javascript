@@ -5,7 +5,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link href="style.css" rel="stylesheet" type="text/css">
-	<script src="/Script/script.js" type="module"></script>
+	<script type="module" src="/Script/script.js" defer></script>
 	<title>HANGMAN GAME</title>
 </head>
 
@@ -17,7 +17,6 @@
 		</section>
 		</section>
 	</header>
-	<main>
 		<hr>
 		<figure class="hangman">
 			<svg width="250" height="282" viewBox="0 0 501 565" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -39,11 +38,31 @@
 				fill="black" />
 			</svg>
 		</figure>
-		<div class="guess-word">guess word</div>
+		<div class="guess-word"></div>
+		<div class="overlay-win"></div>
+		<div class="overlay-lose"></div>
 		<div class="wrong-letter">wrong letter</div>
 		<section id="statistics">statistics
 			<ul></ul>
 		</section>
-	</main>
+
+
+
+		<!-- container for final massege -->
+
+		<!-- <div class="popup-container" id="popup-container">
+        <div class="popup">
+            <h2 id="final-message"></h2>
+            <button id="play-button">Play Again</button>
+        </div>
+    </div> -->
+
+
+
+
+	<!-- Notification -->
+
+
+
 </body>
 </html>

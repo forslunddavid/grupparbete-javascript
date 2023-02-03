@@ -1,4 +1,9 @@
-import jsonData from '/svenska-ord.json' assert { type: "json" }
+import { words } from "./ord.js"
 
-console.log(jsonData);
+const randomWords = words
 
+function randomValue(randomWords) {
+	return randomWords[Math.floor(Math.random() * randomWords.length)]
+}
+
+console.log(randomValue(randomWords))

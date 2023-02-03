@@ -1,3 +1,4 @@
+export const words =
 [
   "-aktig",
   "-artad",
@@ -122311,4 +122312,4 @@
   "övre",
   "övrig",
   "övärld"
-]
+];

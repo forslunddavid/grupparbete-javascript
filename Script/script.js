@@ -59,27 +59,28 @@ const randomWords = words
 const guessWord = document.querySelector('.guess-word')
 function randomValue(randomWords) {
 	return randomWords[Math.floor(Math.random() * randomWords.length)]
+
+
 }
+
+
+
 
 // console.log(randomValue(randomWords))
 
 
-let answer = randomValue(randomWords)
+// let answer = randomValue(randomWords)
 
-console.log(answer)
+// console.log(answer)
 
-	let element = document.createElement('p')
+// 	let element = document.createElement('p')
 
-	element.innerText = answer
-	element.className = 'random-words'
-	guessWord.append(element)
+// 	element.innerText = answer
+// 	element.className = 'random-words'
+// 	guessWord.append(element)
 
-	console.log(element)
-
-	function strReplace(){
-        var myStr = (element);
-        var newStr = myStr.replace(/a-z/gi, "_");
-	}
+// 	console.log(element)
+//     answer = answer.replace(/[a-z]/g, "_")
 
 // skriva ut console.log som <p>-tag i html-filen
 

@@ -1,6 +1,7 @@
 import { words } from "./ord.js"
 
-// import wordList from './svenska-ord.json" assert { type: "json" }'
+// import wordList from './script/svenska-ord.json" assert { type: "json" };
+
 // Overlay win
 
 // varför funkar det bara i body?
@@ -74,6 +75,11 @@ console.log(answer)
 	guessWord.append(element)
 
 	console.log(element)
+
+	function strReplace(){
+        var myStr = (element);
+        var newStr = myStr.replace(/a-z/gi, "_");
+	}
 
 // skriva ut console.log som <p>-tag i html-filen
 

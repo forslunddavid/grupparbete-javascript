@@ -1,12 +1,12 @@
-const word = document.getElementById('');
-const incorrect = document.getElementById('');
-const incorrectLettersEl = document.querySelector('');
-const backdrop = document.getElementById('');
-const finalMsg = document.getElementById('');
-const msgInfo = document.getElementById('');
-const playBtn = document.getElementById('');
-const indication = document.getElementById('');
-const bodyParts = document.getElementsByClassName('');
+const word = document.getElementById('word');
+const incorrect = document.getElementById('incorrect');
+const incorrectLettersEl = document.querySelector('#incorrect p');
+const backdrop = document.getElementById('backdrop');
+const finalMsg = document.getElementById('final-msg');
+const msgInfo = document.getElementById('msg-info');
+const playBtn = document.getElementById('play');
+const indication = document.getElementById('indication');
+const bodyParts = document.getElementsByClassName('body-part');
 
 // List of words
 const wordList = [
@@ -31,6 +31,17 @@ const wordList = [
   'multiple',
   'square',
 ];
+
+document.getElementById("myButton").onclick =  function(){
+  var myName = document.getElementById("myText").value;
+  console.log("Hello", myName);
+}
+
+// var myName = window.prompt("What is your name?")
+
+// console.log("Hello", myName);
+
+
 
 // Ord som är valt att spela
 let selectedWord = null;

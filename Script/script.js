@@ -6,7 +6,7 @@ import { words } from "./ord.js"
 
 // varför funkar det bara i body?
 
-document.body.onload = addElement;
+/* document.body.onload = addElement;
 
 function addElement() {
   // create a new div element
@@ -50,60 +50,71 @@ function on() {
 // else
 function off() {
 	document.getElementsByClassName("overlay-lose").style.display = "block";
-}
+} */
 
-// const randomWords2 = wordList
+
 
 
 const randomWords = words
-const guessWord = document.querySelector('.guess-word')
-function randomValue(randomWords) {
-	return randomWords[Math.floor(Math.random() * randomWords.length)]
+const guessWordText = document.querySelector('.guess-word-text')
+const wrongLetter = document.querySelector('wrong-letter')
+
+let randomValue = randomWords[Math.floor(Math.random() * randomWords.length)]
+console.log(randomValue)
+
+
+
+
+/* let element = document.createElement('p')
+	element.innerText = randomValue
+	element.className = '.random-words'
+	guessWordText.append(element)
+ */
+
+
+
+	for (let lines = 0; lines <= randomValue.length; lines++) {
+	
+		const underLine = document.createElement('p')
+		underLine.innerText =('_')
+		underLine.className = ('.under-line')
+		underLine.style.margin = "1em"; 
+		underLine.style.display = "inline-block"; 
+	
+		guessWordText.append(underLine)
+	}
+
+
+function guessLetter(){
+
+	for (let i=0; i<randomValue.length; i++){
+	
+		if (keyDown ==randomValue[i]){
+			replaceLetters = function strReplace(){
+				var myStr = (element);
+				var newStr = myStr.replace(/a-z/gi, "_");
+				guessWordText.append(newStr)
+		}
+
+
+	}
+
 }
 
-// console.log(randomValue(randomWords))
+}
 
 
-let answer = randomValue(randomWords)
+// om keyDown == randomValue[i] replace undeLine[i]
 
-console.log(answer)
 
-	let element = document.createElement('p')
-
-	element.innerText = answer
-	element.className = 'random-words'
-	guessWord.append(element)
-
-	console.log(element)
-
-	function strReplace(){
+	// console.log(randomValue)
+ 
+/*  replaceLetters = function strReplace(){
         var myStr = (element);
         var newStr = myStr.replace(/a-z/gi, "_");
 	}
+ */
 
-// skriva ut console.log som <p>-tag i html-filen
 
-// document.addEventListener('random-words', function(event) {
-// 	let randomValue = randomWords.value
-// 	let element = document.createElement('p')
-// 	element.innerText = randomValue
-// 	element.className = 'random-words'
-// 	guessWord.append(element)
 
-// 	console.log(element.innerText)
-// });
 
-// document.addEventListener('random-words', function(event) {
-
-// for (let lines = 0; lines <= randomWords.length; lines++) {
-
-// 	const underLine = document.createElement('p')
-// 	underLine.style.width = "4em";
-// 	underLine.style.height = "0.3em";
-// 	underLine.style.background = "#000000";
-// 	underLine.style.margin = "2em";
-// 	underLine.style.display = "inline-block";
-
-// 	guessWord.append(underLine)
-// }
-// })

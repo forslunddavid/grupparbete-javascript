@@ -1,3 +1,6 @@
+
+
+
 const word = document.getElementById('word');
 const incorrect = document.getElementById('incorrect');
 const incorrectLettersEl = document.querySelector('#incorrect p');

@@ -1,12 +1,16 @@
-// Get a reference to the button
+// skapa referens till knappen
 const button = document.querySelector("#button");
 
-// Add a click event listener to the button
+// lägg till en eventlistener för att klicka på knappen
+
 button.addEventListener("click", function() {
-  // Get all the div elements with the class "invisible" or "welcome"
+
+// välj alla divar med stil invisible eller welcome
+
 	const divs = document.querySelectorAll(".invisible, .welcome");
 
-  // Loop through each div and toggle its visibility
+// Dölj visa div
+
 	divs.forEach(function(div) {
     if (div.style.display === "none") {
 		div.style.display = "block";
@@ -35,9 +39,9 @@ statistics.addEventListener("click", function() {
 	overlay.style.alignItems = "center";
 	overlay.style.justifyContent = "center";
 
-  // skapa / styla på content
+// skapa / styla på content
 	const content = document.createElement("section");
-	content.style.backgroundColor = "#fff";
+	content.style.backgroundColor = "#ffffff";
 	content.style.padding = "20px";
 	content.style.borderRadius = "10px";
 	content.style.boxShadow = "0 0 10px rgba(0, 0, 0, 0.5)";
@@ -46,9 +50,31 @@ statistics.addEventListener("click", function() {
 	content.style.zIndex = "30";
 	content.textContent = "Statistik";
 
+// Skapa / Styla table, row, header, data
+
 	const table = document.createElement("table");
+	table.style.borderWidth = "2px";
+	table.style.borderStyle = "solid";
+	table.style.borderColor = "#000000";
+	table.style.alignItems = "center";
+
 
 	const row = document.createElement("tr");
+	row.style.borderWidth = "2px";
+	row.style.borderStyle = "solid";
+	row.style.borderColor = "#000000";
+
+	const header = document.createElement("th");
+	header.style.borderWidth = "2px";
+	header.style.borderStyle = "solid";
+	header.style.borderColor = "#000000";
+	header.textContent = "Namn", "Poäng";
+
+
+	const data = document.createElement("td");
+	data.style.borderWidth = "2px";
+	data.style.borderStyle = "solid";
+	data.style.borderColor = "#000000";
 
 
 // Append the content to the overlay
@@ -63,11 +89,11 @@ statistics.addEventListener("click", function() {
 // Append the table row to the table
     table.appendChild(row);
 
-//Append the table header to the table row
-    row.appendChild(document.createElement("th"));
+// Append the table header to the table row
+    row.appendChild(header);
 
 // Append the table data to the table row
-    row.appendChild(document.createElement("td"));
+    row.appendChild(data);
 
 	overlay.addEventListener("click", function(event) {
     if (event.target === overlay) {

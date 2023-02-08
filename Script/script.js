@@ -1,4 +1,7 @@
 import { words } from "./ord.js"
+// import { storeName } from "./local-storage.js";
+import {showHide} from "./button-click.js";
+
 
 // import wordList from './script/svenska-ord.json" assert { type: "json" };
 

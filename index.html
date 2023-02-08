@@ -6,7 +6,9 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link href="style.css" rel="stylesheet" type="text/css">
 	<script type="module" src="/Script/script.js"></script>
-	<script type="module" src="/Script/button-click.js"></script>
+	<script type="module" src="/Script/Button-click.js"></script>
+	<script type="module" src="/Script/hidden-word.js"></script>
+	<script type="module" src="/Script/ord.js"></script>
 	<title>HANGMAN GAME</title>
 </head>
 
@@ -14,7 +16,7 @@
 	<header>
 		<h1>Hangman</h1>
 		<section class="links"><a href="index.html">Hangman</a>
-		<a href="index.html#statistics">Statistik</a>
+		<a class="statistics" href="index.html#statistics">Statistik</a>
 		</section>
 		</section>
 	</header>
@@ -42,7 +44,7 @@
 		<div class="welcome">
 			<p>Welcome to Hangman</p>
 			<p>please enter your name</p>
-			<input type="text">
+			<input type="text" class="player-name">
 			<button class="button" id='button'>Let's Play!</button>
 		</div>
 		<div class="guess-word, invisible"></div>

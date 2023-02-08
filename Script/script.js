@@ -58,7 +58,7 @@ function off() {
 
 
 const randomWords = words
-const guessWordText = document.querySelector('.guess-word-text')
+const guessWordText = document.querySelector('.guess-word')
 const wrongLetter = document.querySelector('wrong-letter')
 
 let randomValue = randomWords[Math.floor(Math.random() * randomWords.length)]

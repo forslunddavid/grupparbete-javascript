@@ -8,15 +8,18 @@ button.addEventListener("click", function() {
 // välj alla divar med stil invisible eller welcome
 
 	const divs = document.querySelectorAll(".invisible, .welcome");
-
+console.log('click',divs)
 // Dölj visa div
 
 	divs.forEach(function(div) {
-    if (div.style.display === "none") {
+    /* if (div.invisible === "none") {
 		div.style.display = "block";
     } else {
 		div.style.display = "none";
-    }
+    } */
+
+
+	div.classList.toggle('invisible')
 	});
 });
 

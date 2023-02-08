@@ -158,6 +158,7 @@ svg {
 
 .invisible {
 	display: none;
+	/* visibility: hidden; */
 }
 
 .welcome {

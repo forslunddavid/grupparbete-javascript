@@ -1,4 +1,6 @@
 import { words } from "./ord.js"
+// import { storeName } from "./local-storage.js";
+
 
 // import wordList from './script/svenska-ord.json" assert { type: "json" };
 
@@ -85,7 +87,7 @@ console.log(randomValue)
 	}
 
 
-function guessLetter(){
+/* function guessLetter(){
 
 	for (let i=0; i<randomValue.length; i++){
 	
@@ -101,7 +103,7 @@ function guessLetter(){
 
 }
 
-}
+} */
 
 
 // om keyDown == randomValue[i] replace undeLine[i]

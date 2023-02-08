@@ -5,7 +5,10 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link href="style.css" rel="stylesheet" type="text/css">
-	<script type="module" src="/Script/script.js" defer></script>
+	<script type="module" src="/Script/script.js"></script>
+	<script type="module" src="/Script/Button-click.js"></script>
+<!-- 	<script type="module" src="/Script/hidden-word.js"></script> -->
+	<script type="module" src="/Script/ord.js"></script>
 	<title>HANGMAN GAME</title>
 </head>
 
@@ -13,12 +16,12 @@
 	<header>
 		<h1>Hangman</h1>
 		<section class="links"><a href="index.html">Hangman</a>
-		<a href="index.html#statistics">Statistik</a>
+		<a class="statistics" href="index.html#statistics">Statistik</a>
 		</section>
 		</section>
 	</header>
 		<hr>
-		<figure class="hangman">
+		<figure class="hangman, invisible">
 			<svg width="250" height="282" viewBox="0 0 501 565" fill="none" xmlns="http://www.w3.org/2000/svg">
 				<ellipse id="ground" cx="250.5" cy="536" rx="250.5" ry="29" fill="black" fill-opacity="0.06" />
 				<path id="scaffold" fill-rule="evenodd" clip-rule="evenodd"
@@ -38,13 +41,17 @@
 				fill="black" />
 			</svg>
 		</figure>
-		<div class="guess-word">
-			<div class="guess-word-text"></div>
+		<div class="welcome">
+			<p>Welcome to Hangman</p>
+			<p>please enter your name</p>
+			<input type="text" class="player-name">
+			<button class="button" id='button'>Let's Play!</button>
 		</div>
-		<div class="overlay-win"></div>
-		<div class="overlay-lose"></div>
-		<p class="wrong-letter">fel bokstäver: <span></span> </p>
-		<section id="statistics">statistics
+		<div class="guess-word, invisible"></div>
+		<div class="overlay-win, invisible"></div>
+		<div class="overlay-lose, invisible"></div>
+		<div class="wrong-letter, invisible">wrong letter</div>
+		<section class="invisible" id="statistics">statistics
 			<ul></ul>
 		</section>
 

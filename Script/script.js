@@ -8,7 +8,6 @@ const backdrop = document.getElementById('backdrop');
 const finalMsg = document.getElementById('final-msg');
 const msgInfo = document.getElementById('msg-info');
 const playBtn = document.getElementById('play');
-const indication = document.getElementById('indication');
 const bodyParts = document.getElementsByClassName('body-part');
 
 // List of words

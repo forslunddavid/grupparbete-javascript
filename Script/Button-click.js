@@ -60,21 +60,28 @@ statistics.addEventListener("click", function() {
 
 
 	const row = document.createElement("tr");
-	row.style.borderWidth = "2px";
-	row.style.borderStyle = "solid";
-	row.style.borderColor = "#000000";
+	// row.style.borderWidth = "2px";
+	// row.style.borderStyle = "solid";
+	// row.style.borderColor = "#000000";
 
 	const header = document.createElement("th");
-	header.style.borderWidth = "2px";
-	header.style.borderStyle = "solid";
-	header.style.borderColor = "#000000";
-	header.textContent = "Namn", "Poäng";
+	// header.style.borderWidth = "2px";
+	// header.style.borderStyle = "solid";
+	// header.style.borderColor = "#000000";
+	header.textContent = "Namn";
+
+	// const header = document.createElement("th");
+	// // header.style.borderWidth = "2px";
+	// // header.style.borderStyle = "solid";
+	// // header.style.borderColor = "#000000";
+	// header.textContent = "Poäng";
 
 
-	const data = document.createElement("td");
+	const data = document.createElement("th");
 	data.style.borderWidth = "2px";
 	data.style.borderStyle = "solid";
 	data.style.borderColor = "#000000";
+
 
 
 // Append the content to the overlay

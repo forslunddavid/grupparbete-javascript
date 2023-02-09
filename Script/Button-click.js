@@ -19,7 +19,10 @@ console.log('click',divs)
     } */
 
 
-	div.classList.toggle('invisible')
+	div.classList.toggle('invisible');
+	div.classList.toggle('welcome');
+
+
 	});
 });
 

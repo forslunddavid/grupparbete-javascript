@@ -20,26 +20,6 @@ h1 {
 }
 
 
-.overlay-win {
-	position: fixed;
-	align-self: center;
-	width: 90vw;
-	height: 70vh;
-	background-color: hotpink;
-	z-index: 2;
-	display: none;
-}
-
-.overlay-lose {
-	position: fixed;;
-	align-self: center;
-	width: 90vw;
-	height: 70vh;
-	background-color: cyan;
-	z-index: 2;
-	display: none;
-}
-
 .links{
 	display:flex;
 	justify-content: center;
@@ -99,7 +79,7 @@ svg {
 	height: 282px;
 	margin-top: 2em;
 	margin-bottom: 2em;
-	/* visibility: hidden; */
+	visibility: hidden;
 }
 
 

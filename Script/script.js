@@ -76,21 +76,22 @@ console.log(randomValue)
 
 
 	for (let lines = 0; lines <= randomValue.length; lines++) {
-	
+
 		const underLine = document.createElement('p')
 		underLine.innerText =('_')
 		underLine.className = ('.under-line')
-		underLine.style.margin = "1em"; 
-		underLine.style.display = "inline-block"; 
-	
+		underLine.style.margin = "1em";
+		underLine.style.display = "inline-block";
+
 		guessWordText.append(underLine)
 	}
+
 
 
 /* function guessLetter(){
 
 	for (let i=0; i<randomValue.length; i++){
-	
+
 		if (keyDown ==randomValue[i]){
 			replaceLetters = function strReplace(){
 				var myStr = (element);
@@ -110,7 +111,7 @@ console.log(randomValue)
 
 
 	// console.log(randomValue)
- 
+
 /*  replaceLetters = function strReplace(){
         var myStr = (element);
         var newStr = myStr.replace(/a-z/gi, "_");

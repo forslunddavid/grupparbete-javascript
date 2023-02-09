@@ -69,16 +69,17 @@ function off() {
 
 const randomWords = words
 const guessWord = document.querySelector('.guess-word')
-const wrongLetter = document.querySelector('wrong-letter')
+const wrongLetterContainer = document.querySelector('wrong-letter')
 const letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'å', 'ä', 'ö'];
 let guessedLetters = [];
 
-
+// wrongLetterContainer.append(wrongLetters)
 
 let randomValue = randomWords[Math.floor(Math.random() * randomWords.length)]
 console.log(randomValue)
 const randomValueArray = [...randomValue]
 const answer = []
+
 
 function makeAnswerArray() {
 	for (let i = 0; i < randomValueArray.length; i++) {
@@ -103,6 +104,7 @@ function renderLines() {
 
 	}
 }
+
 
 
 
@@ -133,9 +135,22 @@ document.addEventListener('keydown', (event) => {
 		if (!guessedLetters.includes(guessedLetter)) {
 			guessedLetters.push(guessedLetter);
 		}
+		for (let i = 0; i < correctWordAsArray.length; i++){
+			const wrongLetters = document.createElement('p') 
+			wrongLetters.innerText = ('')
+			if (guessedLetter !== correctWordAsArray[i]){
+				wrongLetters.push(guessedLetter)
+			}console.log(wrongLetters)
+		}
+		
+	}
 
+	if (answer.lenght = correctWordAsArray){
+		//end game, you win!
 	}
 })
+
+
 
 
 

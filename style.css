@@ -20,26 +20,6 @@ h1 {
 }
 
 
-.overlay-win {
-	position: fixed;
-	align-self: center;
-	width: 90vw;
-	height: 70vh;
-	background-color: hotpink;
-	z-index: 2;
-	display: none;
-}
-
-.overlay-lose {
-	position: fixed;;
-	align-self: center;
-	width: 90vw;
-	height: 70vh;
-	background-color: cyan;
-	z-index: 2;
-	display: none;
-}
-
 .links{
 	display:flex;
 	justify-content: center;
@@ -99,7 +79,7 @@ svg {
 	height: 282px;
 	margin-top: 2em;
 	margin-bottom: 2em;
-	/* visibility: hidden; */
+	visibility: hidden;
 }
 
 
@@ -152,12 +132,13 @@ svg {
 			height: 565px;
 			margin-top: 5em;
             margin-bottom: 5em;
-			/* visibility: hidden; */
+			visibility: hidden;
 		}
 }
 
 .invisible {
 	display: none;
+
 }
 
 .welcome {
@@ -170,3 +151,30 @@ svg {
 	align-self: center;
 	display: block;
     }
+
+.welcome-hidden {
+	border-color: #020005;
+	border-style: solid;
+	border-width: 3px;
+	border-radius: 10px;
+	width: 90%;
+	height: 70vh;
+	align-self: center;
+	display: none;
+}
+
+/* .overlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0,0,0, 0.5);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.statistik{
+
+} */

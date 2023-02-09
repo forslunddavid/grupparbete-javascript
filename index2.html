@@ -7,7 +7,7 @@
 	<link href="style.css" rel="stylesheet" type="text/css">
 	<script type="module" src="/Script/script.js"></script>
 	<script type="module" src="/Script/Button-click.js"></script>
-<!-- 	<script type="module" src="/Script/hidden-word.js"></script> -->
+	<script type="module" src="/Script/hidden-word.js"></script>
 	<script type="module" src="/Script/ord.js"></script>
 	<title>HANGMAN GAME</title>
 </head>
@@ -47,10 +47,13 @@
 			<input type="text" class="player-name">
 			<button class="button" id='button'>Let's Play!</button>
 		</div>
-		<div class="guess-word invisible">
-		</div>
+		<div class="guess-word, invisible"></div>
+		<div class="overlay-win, invisible"></div>
+		<div class="overlay-lose, invisible"></div>
 		<div class="wrong-letter, invisible">wrong letter</div>
-
+		<section class="invisible" id="statistics">statistics
+			<ul></ul>
+		</section>
 
 
 

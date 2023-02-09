@@ -78,8 +78,8 @@ localStorage.setItem('names', JSON.stringify(names)) */
 
 // också lagra flera spelare, fast från ett inputfält (mest relevant)
 
-/* function save(){
-	let newData = ' ' + document.getElementById('input-field-id').value 
+function save(){
+	let newData = ' ' + document.getElementById('player-name').value 
 
 	if (localStorage.getItem('data') ==null){
 		localStorage.setItem('data', '[]')
@@ -89,16 +89,16 @@ localStorage.setItem('names', JSON.stringify(names)) */
 	earlierData.push(newData)
 
 	localStorage.setItem('data', JSON.stringify(earlierData))
-} */
+}
 
 // funktion för att synliggöra datan på skärmen, blir dock en array, behöver omvandlas till en ol?
 
- /* function viewResult(){
+ function viewResult(){
 	if(localStorage.getItem('data') != null){
 		document.getElementById(id-för-mottagnade-element).innerHTML =JSON.parse(localStorage.getItem('data'))
 	}
 } 
- */
+
 // kombinera översta funktionen med den nedersta, så man skapar ett objekt som funktionen tar emot istället för input-värde 
 
 

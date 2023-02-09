@@ -56,17 +56,7 @@ function off() {
 
 
 
-
-const randomWords = words
-const guessWordText = document.querySelector('.guess-word')
-const wrongLetter = document.querySelector('wrong-letter')
-
-let randomValue = randomWords[Math.floor(Math.random() * randomWords.length)]
-console.log(randomValue)
-
-
-
-
+// gör RandomValue till egen variabel , behövs?
 /* let element = document.createElement('p')
 	element.innerText = randomValue
 	element.className = '.random-words'
@@ -75,48 +65,80 @@ console.log(randomValue)
 
 
 
-	for (let lines = 0; lines <= randomValue.length; lines++) {
 
+
+const randomWords = words
+const guessWord = document.querySelector('.guess-word')
+const wrongLetter = document.querySelector('wrong-letter')
+const letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'å', 'ä', 'ö'];
+let guessedLetters = [];
+
+
+
+let randomValue = randomWords[Math.floor(Math.random() * randomWords.length)]
+console.log(randomValue)
+const randomValueArray = [...randomValue]
+const answer = []
+
+function makeAnswerArray() {
+	for (let i = 0; i < randomValueArray.length; i++) {
+		answer.push("");
+	}
+	console.log(answer);
+}
+makeAnswerArray();
+
+console.log(randomValueArray)
+
+renderLines();
+
+function renderLines() {
+	guessWord.innerHTML = "";
+	for (let lines = 0; lines < answer.length; lines++) {
 		const underLine = document.createElement('p')
-		underLine.innerText =('_')
-		underLine.className = ('.under-line')
-		underLine.style.margin = "1em";
-		underLine.style.display = "inline-block";
+		underLine.innerText = (answer[lines])
+		underLine.className = ('under-line')
 
-		guessWordText.append(underLine)
-	}
-
-
-
-/* function guessLetter(){
-
-	for (let i=0; i<randomValue.length; i++){
-
-		if (keyDown ==randomValue[i]){
-			replaceLetters = function strReplace(){
-				var myStr = (element);
-				var newStr = myStr.replace(/a-z/gi, "_");
-				guessWordText.append(newStr)
-		}
-
+		guessWord.append(underLine)
 
 	}
-
 }
 
-} */
 
 
-// om keyDown == randomValue[i] replace undeLine[i]
+document.addEventListener('keydown', (event) => {
+	let correctWordAsArray = randomValueArray;
+	let guessedLetter = event.key;
+	// console.log(guessedLetter);
+	if (letters.includes(guessedLetter)) {
+		// kolla om bokstaven finns i ordet
+		// kolla så att man inte redan gissat på den
+		if (correctWordAsArray.includes(guessedLetter) && !guessedLetters.includes(guessedLetter)) {
+			// lägg in gissade bokstaven bland gissade bokstäver
+			guessedLetters.push(guessedLetter);
+			// console.log(guessedLetters);
+			// hitta rätt index i ordet för gissade bokstaven/bokstäverna
 
-
-	// console.log(randomValue)
-
-/*  replaceLetters = function strReplace(){
-        var myStr = (element);
-        var newStr = myStr.replace(/a-z/gi, "_");
+			console.log(correctWordAsArray)
+			for (let i = 0; i < correctWordAsArray.length; i++) {
+				if (correctWordAsArray[i] === guessedLetter) {
+					answer.splice(i, 1, correctWordAsArray[i]);
+				}
+			}
+			renderLines();
+		}
 	}
- */
+	else {
+		// vid felgissning
+		if (!guessedLetters.includes(guessedLetter)) {
+			guessedLetters.push(guessedLetter);
+		}
+
+	}
+})
+
+
+
 
 
 

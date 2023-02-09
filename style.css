@@ -20,6 +20,26 @@ h1 {
 }
 
 
+.overlay-win {
+	position: fixed;
+	align-self: center;
+	width: 90vw;
+	height: 70vh;
+	background-color: hotpink;
+	z-index: 2;
+	display: none;
+}
+
+.overlay-lose {
+	position: fixed;;
+	align-self: center;
+	width: 90vw;
+	height: 70vh;
+	background-color: cyan;
+	z-index: 2;
+	display: none;
+}
+
 .links{
 	display:flex;
 	justify-content: center;
@@ -69,19 +89,23 @@ transform: ;
     height: 5em;
 }
 
-#statistics{
-	background-color: bisque;
-	height:5em;
-}
-
 svg {
 	width: 250px;
 	height: 282px;
 	margin-top: 2em;
 	margin-bottom: 2em;
-	visibility: hidden;
+	/* visibility: hidden; */
 }
 
+
+.under-line{
+	background-color:bisque;
+	border-bottom: 5px solid black;
+	margin: 0.5em;
+	width: 2em;
+	height: 2em;
+	display: inline-block;
+}
 
 
 

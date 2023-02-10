@@ -66,7 +66,7 @@ function off() {
 
 
 
-
+let wrongLetters = [];
 const randomWords = words
 const guessWord = document.querySelector('.guess-word')
 // console.log(guessWord);
@@ -84,28 +84,42 @@ const wrongAnswer = []
 console.log(randomValueArray)
 console.log(wrongAnswer)
 
+// initialize local storage with empty array of users
+let users = [];
+console.log('hej');
+localStorage.setItem('users', JSON.stringify(users));
+
+function saveUserData(score, won) {
+	let users = JSON.parse(localStorage.getItem('users'));
+	let currentUser = JSON.parse(localStorage.getItem('currentUser'));
+	
+	if (won) {
+		currentUser.result = 'Vinst'
+	} else {
+		currentUser.result = 'Förlorade'
+	}
+	currentUser.score = score;
+
+	users.push(currentUser);
+	localStorage.setItem('users', JSON.stringify(users));
+}
+
 
 makeWrongLetterArray()
 
-function makeWrongLetterArray(){
-	for (let j = 0; j<5; j++){
+function makeWrongLetterArray() {
+	for (let j = 0; j < 5; j++) {
 		wrongAnswer.push("")
 	}
 }
 
+function renderWrongLetter(letter) {
+	let wrongLetter = document.createElement('p')
+	wrongLetter.innerText = (letter)
+	wrongLetter.className = ('wrong-letter-text')
 
-renderWrongLetters()
-
-function renderWrongLetters(){
-	wrongLetterContainer.innerHTML= "";
-	for (let x = 0; x < 5 ; x++){
-		let wrongLetter = document.createElement('p')
-		wrongLetter.innerText = (wrongAnswer[x])
-		wrongLetter.className = ('wrong-letter-text')
-		
-		wrongLetterContainer.append(wrongLetter)
-		// console.log(wrongLetter)
-	}
+	wrongLetterContainer.insertAdjacentElement('afterbegin', wrongLetter);
+	// console.log(wrongLetter)
 }
 
 makeAnswerArray();
@@ -135,8 +149,7 @@ function renderLines() {
 document.addEventListener('keydown', (event) => {
 	let correctWordAsArray = randomValueArray;
 	let guessedLetter = event.key;
-	
-	 console.log(guessedLetter);
+
 	if (letters.includes(guessedLetter)) {
 		// kolla om bokstaven finns i ordet
 		// kolla så att man inte redan gissat på den
@@ -153,26 +166,39 @@ document.addEventListener('keydown', (event) => {
 				}
 			}
 			renderLines();
+			console.log(correctWordAsArray, answer);
+
+			if (JSON.stringify(correctWordAsArray) == JSON.stringify(answer)) {
+				alert('du vann');
+				// spara undan spelarens resultat i LS
+				saveUserData(5, true);
+			}
 		}
 		else {
 
 			// förebygger att samma fel bokstav går att gissa på flera gånger
 			if (!guessedLetters.includes(guessedLetter)) {
 				guessedLetters.push(guessedLetter);
-	
-				for (let y = 0; y < guessedLetters.length; y++){
-				
+				wrongLetters.push(guessedLetter);
+				wrongLetterContainer.innerHTML = "";
+				for (let y = 0; y < wrongLetters.length; y++) {
+					console.log(wrongLetters[y]);
 					wrongAnswer.unshift(guessedLetter);
+					renderWrongLetter(wrongLetters[y]);
 				}
-				renderWrongLetters()
-			} 
-	}
-	
-	}
-			
+				if (wrongLetters.length === 5) {
+					alert('game over');
+					// spara undan spelarens resultat i LS
+					saveUserData(5, false);
+				}
+			}
+		}
 
-	
-		
+	}
+
+
+
+
 	/* if (answer = correctWordAsArray){
 		//end game, you win!
 

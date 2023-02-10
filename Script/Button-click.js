@@ -4,38 +4,40 @@ const playbutton2 = document.querySelector("#button");
 
 // lägg till en eventlistener för att klicka på knappen
 
-playbutton.addEventListener("click", function() {
+playbutton.addEventListener("click", function () {
 
-// välj alla divar med stil invisible
+	// välj alla divar med stil invisible
 
 	const divs = document.querySelectorAll(".invisible");
-console.log('click',divs)
-// Dölj visa div
+	console.log('click', divs)
+	// Dölj visa div
 
-	divs.forEach(function(div) {
+	divs.forEach(function (div) {
 
-	div.classList.toggle('invisible');
+		div.classList.toggle('invisible');
 
 	});
 });
 
-playbutton2.addEventListener("click", function() {
+playbutton2.addEventListener("click", function () {
 
-// välj alla divar med stil welcome
+	// ta namnet från input och spara i Local Storage
+	let newUserName = document.querySelector('.player-name').value;
+	let currentUser = {
+		name: newUserName,
+		score: 0,
+		result: 'no game played'
+	};
 
+	localStorage.setItem('currentUser', JSON.stringify(currentUser));
+
+	// välj alla divar med stil welcome
 	const divs = document.querySelectorAll(".welcome");
-console.log('click',divs)
-// Dölj visa div
+	console.log('click', divs)
+	// Dölj visa div
 
-	divs.forEach(function(div) {
-
-
-
-	div.classList.toggle('welcome-hidden');
-
-
-
-
+	divs.forEach(function (div) {
+		div.classList.toggle('welcome-hidden');
 	});
 });
 
@@ -44,9 +46,9 @@ console.log('click',divs)
 
 const statistics = document.querySelector(".statistics");
 
-statistics.addEventListener("click", function() {
+statistics.addEventListener("click", function () {
 
-// skapa / styla overlay
+	// skapa / styla overlay
 	const overlay = document.createElement("div");
 	overlay.style.position = "fixed";
 	overlay.style.top = 0;
@@ -58,7 +60,7 @@ statistics.addEventListener("click", function() {
 	overlay.style.alignItems = "center";
 	overlay.style.justifyContent = "center";
 
-// skapa / styla på content
+	// skapa / styla på content
 	const content = document.createElement("section");
 	content.style.backgroundColor = "#ffffff";
 	content.style.padding = "20px";
@@ -70,19 +72,19 @@ statistics.addEventListener("click", function() {
 	content.textContent = "Statistik";
 
 
-// Append the content to the overlay
+	// Append the content to the overlay
 	overlay.appendChild(content);
 
-// Append the overlay to the body
+	// Append the overlay to the body
 	document.body.appendChild(overlay);
 
 
 
-	overlay.addEventListener("click", function(event) {
-    if (event.target === overlay) {
-    overlay.remove();
-    }
-});
+	overlay.addEventListener("click", function (event) {
+		if (event.target === overlay) {
+			overlay.remove();
+		}
+	});
 
 });
 
@@ -114,7 +116,6 @@ document.querySelector('button').addEventListener('click', () => {
 
 
 const nameInput = document.querySelector('.player-name')
-nameInput.addEventListener('keydown', function (event){
-	event.stopPropagation()
-}
-)
+nameInput.addEventListener('keydown', function (event) {
+	event.stopPropagation();
+});

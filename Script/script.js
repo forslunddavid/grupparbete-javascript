@@ -81,21 +81,19 @@ const randomValueArray = [...randomValue]
 const answer = []
 const wrongAnswer = []
 
+console.log(randomValueArray)
+console.log(wrongAnswer)
+
+
+makeWrongLetterArray()
+
 function makeWrongLetterArray(){
 	for (let j = 0; j<5; j++){
 		wrongAnswer.push("")
 	}
 }
-makeWrongLetterArray()
-console.log(wrongAnswer)
 
 
-function makeAnswerArray() {
-	for (let i = 0; i < randomValueArray.length; i++) {
-		answer.push("");
-	}
-	// console.log(answer);
-}
 renderWrongLetters()
 
 function renderWrongLetters(){
@@ -110,10 +108,15 @@ function renderWrongLetters(){
 	}
 }
 
-
 makeAnswerArray();
 
-console.log(randomValueArray)
+function makeAnswerArray() {
+	for (let i = 0; i < randomValueArray.length; i++) {
+		answer.push("");
+	}
+	// console.log(answer);
+}
+
 
 renderLines();
 
@@ -155,13 +158,13 @@ document.addEventListener('keydown', (event) => {
 	}
 	else {
 
-		// förebygger att samma bokstav går att gissa på flera gånger
+		// förebygger att samma fel bokstav går att gissa på flera gånger
 		if (!guessedLetters.includes(guessedLetter)) {
 			guessedLetters.push(guessedLetter);
 
-			for (let y = 0; y < 5; y++)
-			if (!correctWordAsArray === guessedLetter){
-				wrongAnswer.push(guessedLetter)
+			for (let y = 0; y < correctWordAsArray.length; y++)
+			if (!correctWordAsArray.includes(guessedLetter)){
+				wrongAnswer.splice(i, 1, guessedLetter);
 			}
 			renderWrongLetters()
 		} 

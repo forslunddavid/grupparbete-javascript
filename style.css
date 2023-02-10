@@ -91,6 +91,11 @@ transform: ;
 
 .wrong-letter-text{
 	color:black;
+	background-color: hotpink;
+	height: 1em;
+	width: 1em;
+	display: inline-block;
+	margin: 0.5em;
 }
 
 svg {

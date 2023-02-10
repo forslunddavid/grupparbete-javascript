@@ -111,3 +111,10 @@ document.querySelector('button').addEventListener('click', () => {
 
 }
  */
+
+
+const nameInput = document.querySelector('.player-name')
+welcome.addEventListener(keydowm, function (event){
+	event.stopPropagation()
+}
+)

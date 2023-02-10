@@ -104,7 +104,7 @@ function renderWrongLetters(){
 		wrongLetter.className = ('wrong-letter-text')
 		
 		wrongLetterContainer.append(wrongLetter)
-		console.log(wrongLetter)
+		// console.log(wrongLetter)
 	}
 }
 
@@ -132,7 +132,6 @@ function renderLines() {
 	}
 }
 
-
 document.addEventListener('keydown', (event) => {
 	let correctWordAsArray = randomValueArray;
 	let guessedLetter = event.key;
@@ -155,27 +154,26 @@ document.addEventListener('keydown', (event) => {
 			}
 			renderLines();
 		}
+		else {
+
+			// förebygger att samma fel bokstav går att gissa på flera gånger
+			if (!guessedLetters.includes(guessedLetter)) {
+				guessedLetters.push(guessedLetter);
+	
+				for (let y = 0; y < guessedLetters.length; y++){
+				
+					wrongAnswer.unshift(guessedLetter);
+				}
+				renderWrongLetters()
+			} 
 	}
-	else {
-
-		// förebygger att samma fel bokstav går att gissa på flera gånger
-		if (!guessedLetters.includes(guessedLetter)) {
-			guessedLetters.push(guessedLetter);
-
-			for (let y = 0; y < correctWordAsArray.length; y++)
-			if (!correctWordAsArray.includes(guessedLetter)){
-				wrongAnswer.splice(i, 1, guessedLetter);
-			}
-			renderWrongLetters()
-		} 
-
+	
+	}
 			
 
-	}
-		
 	
-
-	/* if (answer.lenght = correctWordAsArray.length){
+		
+	/* if (answer = correctWordAsArray){
 		//end game, you win!
 
 	} */

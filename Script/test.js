@@ -35,7 +35,7 @@ toggleButton.addEventListener('click', () => {
 // gör en funktion som lagrar flera data i objekt:
 
 function store(){
-	let name = document.getElementById('id-för input').value
+	let namn = document.getElementById('.player-name').value
 	let resultat = 'resultatet från spelomgången'
 
 	const spelare ={

@@ -89,6 +89,10 @@ transform: ;
     height: 5em;
 }
 
+.wrong-letter-text{
+	color:black;
+}
+
 svg {
 	width: 250px;
 	height: 282px;

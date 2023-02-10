@@ -97,7 +97,7 @@ document.querySelector('button').addEventListener('click', () => {
 	localStorage.setItem('playerNames', JSON.stringify(playerNames));
 }); */
 
-function savePlayer(){
+/* function savePlayer(){
 	var newPlayer = document.getElementsByClassName('player-name').value
 
 	if (localStorage.getItem('playerNames') == null) {
@@ -110,4 +110,4 @@ function savePlayer(){
 	localStorage.setItem('playerNames', JSON.stringify(playerList));
 
 }
-
+ */

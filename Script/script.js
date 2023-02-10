@@ -69,24 +69,48 @@ function off() {
 
 const randomWords = words
 const guessWord = document.querySelector('.guess-word')
-const wrongLetterContainer = document.querySelector('wrong-letter')
+// console.log(guessWord);
+const wrongLetterContainer = document.querySelector('.wrong-letter')
+// console.log(wrongLetterContainer)
 const letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'å', 'ä', 'ö'];
 let guessedLetters = [];
-
-// wrongLetterContainer.append(wrongLetters)
 
 let randomValue = randomWords[Math.floor(Math.random() * randomWords.length)]
 console.log(randomValue)
 const randomValueArray = [...randomValue]
 const answer = []
+const wrongAnswer = []
+
+function makeWrongLetterArray(){
+	for (let j = 0; j<5; j++){
+		wrongAnswer.push("")
+	}
+}
+makeWrongLetterArray()
+console.log(wrongAnswer)
 
 
 function makeAnswerArray() {
 	for (let i = 0; i < randomValueArray.length; i++) {
 		answer.push("");
 	}
-	console.log(answer);
+	// console.log(answer);
 }
+renderWrongLetters()
+
+function renderWrongLetters(){
+	wrongLetterContainer.innerHTML= "";
+	for (let x = 0; x < 5 ; x++){
+		let wrongLetter = document.createElement('p')
+		wrongLetter.innerText = (wrongAnswer[x])
+		wrongLetter.className = ('wrong-letter-text')
+		
+		wrongLetterContainer.append(wrongLetter)
+		console.log(wrongLetter)
+	}
+}
+
+
 makeAnswerArray();
 
 console.log(randomValueArray)
@@ -106,12 +130,11 @@ function renderLines() {
 }
 
 
-
-
 document.addEventListener('keydown', (event) => {
 	let correctWordAsArray = randomValueArray;
 	let guessedLetter = event.key;
-	// console.log(guessedLetter);
+	
+	 console.log(guessedLetter);
 	if (letters.includes(guessedLetter)) {
 		// kolla om bokstaven finns i ordet
 		// kolla så att man inte redan gissat på den
@@ -131,23 +154,28 @@ document.addEventListener('keydown', (event) => {
 		}
 	}
 	else {
-		// vid felgissning
+
+		// förebygger att samma bokstav går att gissa på flera gånger
 		if (!guessedLetters.includes(guessedLetter)) {
 			guessedLetters.push(guessedLetter);
-		}
-		for (let i = 0; i < correctWordAsArray.length; i++){
-			const wrongLetters = document.createElement('p') 
-			wrongLetters.innerText = ('')
-			if (guessedLetter !== correctWordAsArray[i]){
-				wrongLetters.push(guessedLetter)
-			}console.log(wrongLetters)
-		}
-		
-	}
 
-	if (answer.lenght = correctWordAsArray){
-		//end game, you win!
+			for (let y = 0; y < 5; y++)
+			if (!correctWordAsArray === guessedLetter){
+				wrongAnswer.push(guessedLetter)
+			}
+			renderWrongLetters()
+		} 
+
+			
+
 	}
+		
+	
+
+	/* if (answer.lenght = correctWordAsArray.length){
+		//end game, you win!
+
+	} */
 })
 
 

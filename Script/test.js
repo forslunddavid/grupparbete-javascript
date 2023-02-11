@@ -34,17 +34,17 @@ toggleButton.addEventListener('click', () => {
 
 // gör en funktion som lagrar flera data i objekt:
 
-function store(){
-	let namn = document.getElementById('.player-name').value
+/* function store(){
+	let namn = document.getElementById('.player-nameus').value
 	let resultat = 'resultatet från spelomgången'
 
 	const spelare ={
-	namn: namn
+	namn: namn,
 	resultat: resultat
 	}
 
 window.localStorage.setItem(spelare, JSON.stringify(spelare))
-}
+} */
 
 // funktion för att hämta från storage, inte helt genomarbetad
 
@@ -78,7 +78,7 @@ localStorage.setItem('names', JSON.stringify(names)) */
 
 // också lagra flera spelare, fast från ett inputfält (mest relevant)
 
-function save(){
+/* function save(){
 	let newData = ' ' + document.getElementById('player-name').value 
 
 	if (localStorage.getItem('data') ==null){
@@ -128,4 +128,4 @@ function viewResult(){
 	if(localStorage.getItem('data') != null){
 		document.getElementById(id-för-mottagnade-element).innerHTML =JSON.parse(localStorage.getItem('data'))
 	}
-} 
+}  */

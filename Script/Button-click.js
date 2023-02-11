@@ -88,32 +88,6 @@ statistics.addEventListener("click", function () {
 
 });
 
-// spara till local storage från inputfältet
-
-/* let playerNames = [];
-
-document.querySelector('button').addEventListener('click', () => {
-	const playerName = document.querySelector('.player-name').value;
-
-	playerNames.push(playerName);
-	localStorage.setItem('playerNames', JSON.stringify(playerNames));
-}); */
-
-/* function savePlayer(){
-	var newPlayer = document.getElementsByClassName('player-name').value
-
-	if (localStorage.getItem('playerNames') == null) {
-		localStorage.setItem('playerNames','[]')
-	}
-
-	var playerList = JSON.parse(localStorage.getItem('playerNames'));
-	playerList.push(newPlayer);
-
-	localStorage.setItem('playerNames', JSON.stringify(playerList));
-
-}
- */
-
 
 const nameInput = document.querySelector('.player-name')
 nameInput.addEventListener('keydown', function (event) {

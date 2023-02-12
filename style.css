@@ -90,30 +90,15 @@ main{
 	height: auto;
 }
 
-#ground{
-
-	visibility: hidden;
+svg {
+	width: 250px;
+	height: 282px;
+	margin-top: 2em;
+	margin-bottom: 2em;
+	
 }
-
-#scaffold {
-	visibility: 
-
-}
-
-#head{
-transform: ;
-}
-
-#arms {
-transform: ;
-}
-
-#body {
-transform: ;
-}
-
-#leg{
-transform: ;
+.hangman-part{
+	display: none;
 }
 
 .guess-word {
@@ -137,15 +122,6 @@ transform: ;
 	font-size: 2rem;
 
 }
-
-svg {
-	width: 250px;
-	height: 282px;
-	margin-top: 2em;
-	margin-bottom: 2em;
-	
-}
-
 
 .under-line{
 	border-bottom: 5px solid black;
@@ -207,7 +183,6 @@ svg {
 			height: 565px;
 			margin-top: 5em;
             margin-bottom: 5em;
-			visibility: hidden;
 		}
 }
 

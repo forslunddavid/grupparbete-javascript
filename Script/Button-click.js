@@ -1,7 +1,11 @@
 // skapa referens till knappen
 const playButton = document.querySelector("#button");
 const playbutton2 = document.querySelector("#button");
-const nameInput = document.querySelector('.player-name')
+const nameInput = document.querySelector('.player-name');
+const newGameButton = document.querySelector('.new-game-button');
+
+
+
 // lägg till en eventlistener för att klicka på knappen
 
 nameInput.addEventListener('keydown', function (event) {
@@ -51,6 +55,10 @@ playbutton2.addEventListener("click", function () {
 		div.classList.toggle('welcome-hidden');
 	});
 });
+
+
+
+
 
 
 // overlay statistik

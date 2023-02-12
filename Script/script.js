@@ -3,7 +3,7 @@ import { words } from "./ord.js"
 
 // testa toogle för visability på hangman-delarna
 // ngn form av counter kopplad
-// buttons få dem att tömma och starta nytt spel utan refresh, function som använder RandomValue
+// buttons få dem att tömma och starta nytt spel utan refresh, function som använder RandomValue, kalla på functionen med knapptryck?
 // hämta info från LS och skriva ut den i statistik och sortera
 
 
@@ -13,6 +13,7 @@ const guessWord = document.querySelector('.guess-word')
 // console.log(guessWord);
 const wrongLetterContainer = document.querySelector('.wrong-letter')
 // console.log(wrongLetterContainer)
+const hangmanParts = document.querySelectorAll(".hangman-part");
 const letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'å', 'ä', 'ö'];
 const randomValue = randomWords[Math.floor(Math.random() * randomWords.length)]
 console.log(randomValue)
@@ -28,11 +29,13 @@ console.log(wrongAnswer)
 
 // funktioner
 
+
 makeWrongLetterArray()
 
 function makeWrongLetterArray() {
 	for (let j = 0; j < 6; j++) {
 		wrongAnswer.push("")
+		
 	}
 }
 
@@ -45,11 +48,19 @@ function renderWrongLetter(letter) {
 	// console.log(wrongLetter)
 }
 
-function renderHangman(){
 
-}
-
-
+  function showHangman() {
+	hangmanParts.forEach((part, index) => {
+	  const wrongGuess = wrongLetters.length;
+	  if (index -1 < wrongGuess) {
+		part.style.display = "block";
+	  } /* else {
+		part.style.display = "none";
+	  } */
+	  // console.log("index: " + index);
+	
+	});
+  }
 
 
 makeAnswerArray();
@@ -134,14 +145,14 @@ document.addEventListener('keydown', (event) => {
 			// console.log(guessedLetters);
 
 			// hitta rätt index i ordet för gissade bokstaven/bokstäverna
-			console.log(correctWordAsArray)
+			// console.log(correctWordAsArray)
 			for (let i = 0; i < correctWordAsArray.length; i++) {
 				if (correctWordAsArray[i] === guessedLetter) {
 					answer.splice(i, 1, correctWordAsArray[i]);
 				}
 			}
 			renderLines();
-			console.log(correctWordAsArray, answer);
+			// console.log(correctWordAsArray, answer);
 
 			// när man vinner
 			if (JSON.stringify(correctWordAsArray) == JSON.stringify(answer)) {
@@ -151,25 +162,22 @@ document.addEventListener('keydown', (event) => {
 			}
 		}
 		else {
-
+			showHangman()
 			// förebygger att samma fel bokstav går att gissa på flera gånger
 			if (!guessedLetters.includes(guessedLetter)) {
 				guessedLetters.push(guessedLetter);
 				wrongLetters.push(guessedLetter);
 				wrongLetterContainer.innerHTML = "";
-
+		
 
 				for (let y = 0; y < wrongLetters.length; y++) {
 					console.log(wrongLetters[y]);
 					wrongAnswer.unshift(guessedLetter);
 					renderWrongLetter(wrongLetters[y]);
-					
-					if(wrongLetters.length = 1){
-						drawing[0].style.visability = visible
-					}
 				}
-
+				
 				// när man förlorar
+				
 				if (wrongLetters.length === 6) {
 					createLooseOverlay()
 					// spara undan spelarens resultat i LS
@@ -183,20 +191,26 @@ document.addEventListener('keydown', (event) => {
 
 
 
+/* if(wrongAnswer.unshift(guessedLetter)){
+	for(let pictureCount = 0; pictureCount<drawing.length; pictureCount++){
+		drawing[pictureCount].style.visability = 'visible'
+	}
+}
+ */
 
-
+/* 
 if(wrongLetters.length = 1){
 	drawing[0].style.visability = visible
 }
-
-	const drawing = [ground, scaffold, head, body, arms, legs]
+ */
+	/* const drawing = [ground, scaffold, head, body, arms, legs]
     ground = document.querySelector('#ground'), 
     scaffold = document.querySelector('#scaffold'),
     legs = document.querySelector('#legs'),
     arms = document.querySelector('#arms'),
     body = document.querySelector('#body'),
     head = document.querySelector('#head')
-
+ */
 
 // const ground = hangman.ground
 // const scaffold = hangman.scaffold

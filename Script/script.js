@@ -1,8 +1,5 @@
 import { words } from "./ord.js"
 
-
-// testa toogle för visability på hangman-delarna
-// ngn form av counter kopplad
 // buttons få dem att tömma och starta nytt spel utan refresh, function som använder RandomValue, kalla på functionen med knapptryck?
 // hämta info från LS och skriva ut den i statistik och sortera
 
@@ -54,11 +51,7 @@ function renderWrongLetter(letter) {
 	  const wrongGuess = wrongLetters.length;
 	  if (index -1 < wrongGuess) {
 		part.style.display = "block";
-	  } /* else {
-		part.style.display = "none";
-	  } */
-	  // console.log("index: " + index);
-	
+	  }
 	});
   }
 

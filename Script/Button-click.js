@@ -1,3 +1,5 @@
+
+
 // skapa referens till knappen
 const playButton = document.querySelector("#button");
 const playbutton2 = document.querySelector("#button");
@@ -19,7 +21,7 @@ nameInput.addEventListener('input', function () {
 
 playButton.addEventListener("click", function () {
 
-
+	
 
 	// välj alla divar med stil invisible
 
@@ -30,7 +32,7 @@ playButton.addEventListener("click", function () {
 	divs.forEach(function (div) {
 
 		div.classList.toggle('invisible');
-
+		
 	});
 });
 
@@ -53,6 +55,7 @@ playbutton2.addEventListener("click", function () {
 
 	divs.forEach(function (div) {
 		div.classList.toggle('welcome-hidden');
+		
 	});
 });
 

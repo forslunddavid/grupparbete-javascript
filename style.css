@@ -21,9 +21,19 @@ h1 {
 	margin-top: 1em;
 }
 
+.button{
+	background-color: #4bc036;
+	border: 2px solid #135c06;
+	border-radius: 5px;
+	width: 7em;
+	height: 2em;
+	margin: 1em;
+}
+
+
 .new-game-button{
 	background-color: rgb(75, 192, 54);
-	border: 2px solid black;
+	border: 2px solid #135c06;
 	border-radius: 5px;
 	width: 5em;
 	height: 2em;
@@ -82,42 +92,46 @@ h1 {
 padding:2em;
 }
 
-
-main{
-	display:flex;
-	flex-direction: column;
-	justify-content: center;
-	height: auto;
-}
-
 svg {
 	width: 250px;
 	height: 282px;
 	margin-top: 2em;
-	margin-bottom: 2em;
-	
 }
+
 .hangman-part{
 	display: none;
 }
 
 .guess-word {
-	background-color: aquamarine;
+	/* background-color: aquamarine; */
 	height: 5em;
+	display:flex;
+	justify-content: center;
 }
 
 .wrong-letter{
-	background-color: rgb(165, 127, 255);
-    height: 5em;
+	display:flex;
+	justify-content: center;
+	align-items: center;
+	/* background-color: rgb(255, 78, 54); */
+    height: 2em;
+	width:fit-content;
+	padding: 0 8em;
+	margin: 0 auto;
 }
 
 .wrong-letter-text{
 	color:black;
-	background-color: hotpink;
-	height: 1em;
+	background-color: rgb(207, 47, 26);
+	border-radius: 2em;
+	height: 0.1em;
 	width: 1em;
-	display: inline-block;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
 	margin: 0.5em;
+	padding-bottom: 0.2em;
 	font-family: 'Walter Turncoat', cursive;
 	font-size: 2rem;
 
@@ -126,7 +140,7 @@ svg {
 .under-line{
 	border-bottom: 5px solid black;
 	margin: 0.1em;
-	padding-bottom: 1.1em;;
+	padding-bottom: 1.1em;
 	width: 1em;
 	height: 0.2em;
 	display: inline-block;
@@ -181,8 +195,7 @@ svg {
 	svg {
 			width: 501px;
 			height: 565px;
-			margin-top: 5em;
-            margin-bottom: 5em;
+			margin-top: 2em;
 		}
 }
 
@@ -192,14 +205,16 @@ svg {
 }
 
 .welcome {
-	border-color: #020005;
+	background-color: #8f8ff3;
+	border-color: #3030bb;
 	border-style: solid;
-    border-width: 3px;
+    border-width: 2px;
 	border-radius: 10px;
     width: 90%;
 	height: 70vh;
 	align-self: center;
 	display: block;
+	box-shadow: 0 0 5px 5px #ad9f9f ;
     }
 
 .welcome-hidden {
@@ -211,6 +226,15 @@ svg {
 	height: 70vh;
 	align-self: center;
 	display: none;
+}
+
+.welcome >* {
+	margin:2em 0;
+}
+.welcome > p {
+	font-size: 1.2rem;
+	background-color: #8f8ff3;
+	color: #181866;
 }
 
 /* .overlay {

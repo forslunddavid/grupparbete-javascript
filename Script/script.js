@@ -26,6 +26,17 @@ console.log(randomValueArray)
 
 ///// funktioner /////
 
+// Skapa en Array med rätt gissade bokstäver i
+makeAnswerArray();
+
+function makeAnswerArray() {
+	for (let i = 0; i < randomValueArray.length; i++) {
+		answer.push("");
+	}
+	// console.log(answer);
+}
+
+
 // skapa linjer till slumpat ord
 
 renderLines();
@@ -42,15 +53,7 @@ function renderLines() {
 	}
 }
 
-// Skapa en Array med rätt gissade bokstäver i
-makeAnswerArray();
 
-function makeAnswerArray() {
-	for (let i = 0; i < randomValueArray.length; i++) {
-		answer.push("");
-	}
-	// console.log(answer);
-}
 
 // Skapa en lista med gissade bokstäver som är fel
 

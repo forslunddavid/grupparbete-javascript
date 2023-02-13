@@ -7,9 +7,7 @@ import { words } from "./ord.js"
 // variabler för själva spelet
 const randomWords = words
 const guessWord = document.querySelector('.guess-word')
-// console.log(guessWord);
 const wrongLetterContainer = document.querySelector('.wrong-letter')
-// console.log(wrongLetterContainer)
 const hangmanParts = document.querySelectorAll(".hangman-part");
 const letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'å', 'ä', 'ö'];
 const randomValue = randomWords[Math.floor(Math.random() * randomWords.length)]
@@ -18,53 +16,15 @@ const randomValueArray = [...randomValue]
 const guessedLetters = [];
 const wrongLetters = [];
 const answer = []
-const wrongAnswer = []
+
 
 console.log(randomValueArray)
-console.log(wrongAnswer)
 
 
-// funktioner
 
+///// funktioner /////
 
-makeWrongLetterArray()
-
-function makeWrongLetterArray() {
-	for (let j = 0; j < 6; j++) {
-		wrongAnswer.push("")
-		
-	}
-}
-
-function renderWrongLetter(letter) {
-	let wrongLetter = document.createElement('p')
-	wrongLetter.innerText = (letter)
-	wrongLetter.className = ('wrong-letter-text')
-
-	wrongLetterContainer.insertAdjacentElement('afterbegin', wrongLetter);
-	// console.log(wrongLetter)
-}
-
-
-  function showHangman() {
-	hangmanParts.forEach((part, index) => {
-	  const wrongGuess = wrongLetters.length;
-	  if (index -1 < wrongGuess) {
-		part.style.display = "block";
-	  }
-	});
-  }
-
-
-makeAnswerArray();
-
-function makeAnswerArray() {
-	for (let i = 0; i < randomValueArray.length; i++) {
-		answer.push("");
-	}
-	// console.log(answer);
-}
-
+// skapa linjer till slumpat ord
 
 renderLines();
 
@@ -80,7 +40,40 @@ function renderLines() {
 	}
 }
 
-// funktioner för att skapa overlays
+// Skapa en Array med rätt gissade bokstäver i
+makeAnswerArray();
+
+function makeAnswerArray() {
+	for (let i = 0; i < randomValueArray.length; i++) {
+		answer.push("");
+	}
+	// console.log(answer);
+}
+
+// Skapa en lista med gissade bokstäver som är fel
+
+function renderWrongLetter(letter) {
+	let wrongLetter = document.createElement('p')
+	wrongLetter.innerText = (letter)
+	wrongLetter.className = ('wrong-letter-text')
+
+	wrongLetterContainer.insertAdjacentElement('afterbegin', wrongLetter);
+	// console.log(wrongLetter)
+}
+
+// Rita ut gubben
+
+  function showHangman() {
+	hangmanParts.forEach((part, index) => {
+	  const wrongGuess = wrongLetters.length;
+	  if (index -1 < wrongGuess) {
+		part.style.display = "block";
+	  }
+	});
+  }
+
+
+// funktioner för att skapa overlays vid vinst/förlust
 
 function createWinOverlay(){
 	const winOverlay = document.createElement("div");
@@ -165,7 +158,6 @@ document.addEventListener('keydown', (event) => {
 
 				for (let y = 0; y < wrongLetters.length; y++) {
 					console.log(wrongLetters[y]);
-					wrongAnswer.unshift(guessedLetter);
 					renderWrongLetter(wrongLetters[y]);
 				}
 				
@@ -180,64 +172,6 @@ document.addEventListener('keydown', (event) => {
 		}
 	}
 })
-
-
-
-
-/* if(wrongAnswer.unshift(guessedLetter)){
-	for(let pictureCount = 0; pictureCount<drawing.length; pictureCount++){
-		drawing[pictureCount].style.visability = 'visible'
-	}
-}
- */
-
-/* 
-if(wrongLetters.length = 1){
-	drawing[0].style.visability = visible
-}
- */
-	/* const drawing = [ground, scaffold, head, body, arms, legs]
-    ground = document.querySelector('#ground'), 
-    scaffold = document.querySelector('#scaffold'),
-    legs = document.querySelector('#legs'),
-    arms = document.querySelector('#arms'),
-    body = document.querySelector('#body'),
-    head = document.querySelector('#head')
- */
-
-// const ground = hangman.ground
-// const scaffold = hangman.scaffold
-// const head = hangman.head
-// const body = hangman.body
-// const arms = hangman.arms
-// const legs = hangman.legs
-
-
-
-// ground.style.display = invisible
-// scaffold.style.display = invisible
-// head.style.display = invisible
-// body.style.display = invisible
-// arms.style.display = invisible
-// legs.style.display = invisible
-
-
-/* function incorrectGuess() {
-	const drawing = [ground, scaffold, head, body, arms, legs]
-	
-	// rita ut gubben vid felsvar
-	if (shuffle.includes (event. key) == false && onlyLetter. includes (event. key) == true) {
-	drawing[countWrongAnswer].style.display = visible
-	countWrongAnswer++
-	console. log('incorrect guess')
-	}
-}
-	 */
-
-
-
-
-
 
 
 // initialize local storage with empty array of users

@@ -23,21 +23,27 @@ h1 {
 
 .button{
 	background-color: #4bc036;
-	border: 2px solid #135c06;
+	border: 2px solid #20880e;
 	border-radius: 5px;
 	width: 7em;
 	height: 2em;
 	margin: 1em;
+	cursor: pointer;
+	box-shadow: 0 0 2px 1px #4f89fc;
+
 }
 
 
 .new-game-button{
 	background-color: rgb(75, 192, 54);
-	border: 2px solid #135c06;
+	border: 2px solid #20880e;
 	border-radius: 5px;
 	width: 5em;
 	height: 2em;
 	margin: 1em;
+	cursor: pointer;
+	box-shadow: 0 0 2px 1px #4f89fc;
+
 }
 
 .overlay{
@@ -151,7 +157,7 @@ svg {
 
 
 
-/* container for final massege */
+/* container for final message */
 /* .popup-container{
     background-color: rgba(0,0,0,0.3);
     position: fixed;
@@ -205,8 +211,8 @@ svg {
 }
 
 .welcome {
-	background-color: #8f8ff3;
-	border-color: #3030bb;
+	background-color: #bed2fa;
+	border-color: #4f89fc;
 	border-style: solid;
     border-width: 2px;
 	border-radius: 10px;
@@ -233,7 +239,7 @@ svg {
 }
 .welcome > p {
 	font-size: 1.2rem;
-	background-color: #8f8ff3;
+	background-color: #bed2fa;
 	color: #181866;
 }
 

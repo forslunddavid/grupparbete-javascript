@@ -132,19 +132,3 @@ function viewResult(){
 
 
 
-
-const hangmanParts = document.querySelectorAll(".hangman-part");
-
-  function displayHangman() {
-	hangmanParts.forEach((part, index) => {
-	  const error = wrongLetters.length;
-  
-	  if (index < error) {
-		part.style.display = "block";
-	  } else {
-		part.style.display = "none";
-	  }
-	  // console.log("index: " + index);
-	  // console.log("errors: " + errors);
-	});
-  }

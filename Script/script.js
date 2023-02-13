@@ -71,9 +71,9 @@ function renderWrongLetter(letter) {
 	  if (index -1 < wrongGuess) {
 		part.style.display = "block";
 	  }
-	  else {
-		part.style.display = "none";
-	  }
+	//   else {
+	// 	part.style.display = "none";
+	//   }
 	});
   }
 
@@ -88,38 +88,47 @@ function createWinOverlay(){
 	const winOverlay = document.createElement("div");
 	const winButton = document.createElement('button')
 	const winContent = document.createElement('p');
-	
+
 	winOverlay.className = ('overlay')
 	winButton.className = ('new-game-button')
 	winButton.innerText = ('Nytt spel')
 	winContent.innerText = ('Grattis du vann! Du gissade ' + guessedLetters.length + ' gånger')
 	winContent.className = ('content')
-	
+
 		// Append the content to the overlay
 		winOverlay.appendChild(winContent);
 		winContent.appendChild(winButton);
-	
+
+		 // Add event listener to the button
+    	winButton.addEventListener('click', function() {
+        document.body.removeChild(winOverlay);
+    });
+
 		// Append the overlay to the body
 		document.body.appendChild(winOverlay);
 	}
-	
-		
+
+
 	function createLooseOverlay(){
 		const looseOverlay = document.createElement("div");
 		const looseButton = document.createElement('button')
 		const looseContent = document.createElement('p')
-	
+
 		looseOverlay.className = ('overlay')
 		looseButton.className = ('new-game-button')
 		looseButton.innerText = ('Nytt spel')
 		looseContent.innerText = ('Tyvärr du förlorade! Det rätta order var: ' + randomValue)
 		looseContent.className = ('content')
-	
+
 			// Append the content to the overlay
 			looseOverlay.appendChild(looseContent);
 			looseContent.appendChild(looseButton);
-		
-		
+		 // Add event listener to the button
+    		looseButton.addEventListener('click', function() {
+        	document.body.removeChild(looseOverlay);
+    	});
+
+
 			// Append the overlay to the body
 			document.body.appendChild(looseOverlay);
 	}
@@ -163,15 +172,15 @@ document.addEventListener('keydown', (event) => {
 				guessedLetters.push(guessedLetter);
 				wrongLetters.push(guessedLetter);
 				wrongLetterContainer.innerHTML = "";
-		
+
 
 				for (let y = 0; y < wrongLetters.length; y++) {
 					console.log(wrongLetters[y]);
 					renderWrongLetter(wrongLetters[y]);
 				}
-				
+
 				// när man förlorar
-				
+
 				if (wrongLetters.length === 6) {
 					createLooseOverlay()
 					// spara undan spelarens resultat i LS

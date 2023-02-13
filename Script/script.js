@@ -1,8 +1,10 @@
 import { words } from "./ord.js"
 
-// buttons få dem att tömma och starta nytt spel utan refresh, function som använder RandomValue, kalla på functionen med knapptryck?
-// hämta info från LS och skriva ut den i statistik och sortera
+// buttons få dem att tömma och starta nytt spel testat function på linje 80, men den fungerar ej. toggla win/loose overlaysen med button click?
 
+
+// hämta info från LS och skriva ut den i statistik och sortera
+window.addEventListener('click',function(){
 
 // variabler för själva spelet
 const randomWords = words
@@ -69,8 +71,15 @@ function renderWrongLetter(letter) {
 	  if (index -1 < wrongGuess) {
 		part.style.display = "block";
 	  }
+	  else {
+		part.style.display = "none";
+	  }
 	});
   }
+
+ function emtyArray(){
+	return wrongLetters.splice(0, wrongLetters.length)
+ }
 
 
 // funktioner för att skapa overlays vid vinst/förlust
@@ -167,12 +176,13 @@ document.addEventListener('keydown', (event) => {
 					createLooseOverlay()
 					// spara undan spelarens resultat i LS
 					saveUserData(wrongLetters.length, false);
+					emtyArray()
 				}
 			}
 		}
 	}
 })
-
+})
 
 // initialize local storage with empty array of users
 let users = [];

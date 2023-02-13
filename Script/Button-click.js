@@ -1,28 +1,26 @@
+//
 
-
-// skapa referens till knappen
+// skapa referens till knappar och inputfält
 const playButton = document.querySelector("#button");
 const playbutton2 = document.querySelector("#button");
-const nameInput = document.querySelector('.player-name');
 const newGameButton = document.querySelector('.new-game-button');
+const nameInput = document.querySelector('.player-name');
 
 
-
-// lägg till en eventlistener för att klicka på knappen
+// regler för inputfält
 
 nameInput.addEventListener('keydown', function (event) {
 	event.stopPropagation();
 });
+
 nameInput.addEventListener('input', function () {
 	playButton.disabled =(this.value ==='');
 });
 
-
+// lägg till en eventlistener för att klicka på knappen
 
 playButton.addEventListener("click", function () {
-
 	
-
 	// välj alla divar med stil invisible
 
 	const divs = document.querySelectorAll(".invisible");

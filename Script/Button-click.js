@@ -78,7 +78,7 @@ statistics.addEventListener("click", function () {
   // Lägg till overlay till body
 	document.body.appendChild(statisticsOverlay);
 
-  // Append the user list to the statisticsContent element
+  // Lägg till listan till content
 	let users = JSON.parse(localStorage.getItem('users'));
 	let userList = document.createElement('ul');
 	userList.className = 'user-list';

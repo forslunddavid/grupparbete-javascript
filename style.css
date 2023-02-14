@@ -197,10 +197,11 @@ svg {
 .user-list {
 	background-color: aqua;
 	color: hotpink;
+	list-style: none;
 }
 
 .user-item {
 	background-color:white;
-	color: palegreen;
+	color: black;
 
 }

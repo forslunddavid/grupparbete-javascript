@@ -180,7 +180,7 @@ document.addEventListener('keydown', (event) => {
 					createLoseOverlay()
 					// spara undan spelarens resultat i LS
 					saveUserData(wrongLetters.length, false);
-					
+
 				}
 			}
 		}
@@ -209,8 +209,57 @@ console.log('saveUserData1', users, currentUser);
 }
 
 
+// // Assuming you have a <section> element with a class name of "statistics-content"
+// let statisticsSection = document.querySelector('.statistics-content');
+
+// // Create a new <ul> element to display the user data
+// let userList = document.createElement('ul');
+
+// // Loop through the users array and create a new <li> element for each user
+// users.forEach(user => {
+//   let userItem = document.createElement('li');
+//   userItem.textContent = `${user.name} - Score: ${user.score}, Result: ${user.result}`;
+//   userList.appendChild(userItem);
+// });
+
+// // Add the user list to the statistics section
+// statisticsSection.appendChild(userList);
 
 
+////////////////////////////////////////////////////////////////
+
+
+// document.addEventListener('DOMContentLoaded', () => {
+//   let users = JSON.parse(localStorage.getItem('users'));
+//   let statisticsSection = document.querySelector('.statistics-content');
+//   let userList = document.createElement('ul');
+//   users.forEach(user => {
+//     let userItem = document.createElement('li');
+//     userItem.textContent = `${user.name} - Score: ${user.score}, Result: ${user.result}`;
+//     userList.appendChild(userItem);
+//   });
+//   statisticsSection.appendChild(userList);
+// });
+
+
+////////////////////////////
+
+
+// document.addEventListener('DOMContentLoaded', () => {
+//   let users = JSON.parse(localStorage.getItem('users'));
+//   let statisticsSection = document.querySelector('.statistics-content');
+//   let userList = document.createElement('ul');
+//   users.forEach(user => {
+//     let userItem = document.createElement('li');
+//     userItem.textContent = `${user.name} - Score: ${user.score}, Result: ${user.result}`;
+//     userList.appendChild(userItem);
+//   });
+//   if (statisticsSection) {
+//     statisticsSection.appendChild(userList);
+//   } else {
+//     console.error('Unable to find statistics section element');
+//   }
+// });
 
 
 

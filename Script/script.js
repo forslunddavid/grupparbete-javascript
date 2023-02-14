@@ -4,7 +4,7 @@ import { words } from "./ord.js"
 
 
 // hämta info från LS och skriva ut den i statistik och sortera
-window.addEventListener('click',function(){
+/* window.addEventListener('click',function(){ */
 
 // variabler för själva spelet
 const randomWords = words
@@ -16,7 +16,7 @@ const randomValue = randomWords[Math.floor(Math.random() * randomWords.length)]
 console.log(randomValue)
 const randomValueArray = [...randomValue]
 const guessedLetters = [];
-const wrongLetters = [];
+let wrongLetters = [];
 const answer = []
 
 
@@ -25,6 +25,16 @@ console.log(randomValueArray)
 
 
 ///// funktioner /////
+
+// Skapa en Array med rätt gissade bokstäver i
+makeAnswerArray();
+
+function makeAnswerArray() {
+	for (let i = 0; i < randomValueArray.length; i++) {
+		answer.push("");
+	}
+	// console.log(answer);
+}
 
 // skapa linjer till slumpat ord
 
@@ -40,16 +50,6 @@ function renderLines() {
 		guessWord.append(underLine)
 
 	}
-}
-
-// Skapa en Array med rätt gissade bokstäver i
-makeAnswerArray();
-
-function makeAnswerArray() {
-	for (let i = 0; i < randomValueArray.length; i++) {
-		answer.push("");
-	}
-	// console.log(answer);
 }
 
 // Skapa en lista med gissade bokstäver som är fel
@@ -76,9 +76,9 @@ function renderWrongLetter(letter) {
 	//   }
 	});
   }
-
+// försök till funktion som ska tömma wrongLetters, funkar inte
  function emtyArray(){
-	return wrongLetters.splice(0, wrongLetters.length)
+	wrongLetters = []
  }
 
 
@@ -163,6 +163,7 @@ document.addEventListener('keydown', (event) => {
 				createWinOverlay()
 				// spara undan spelarens resultat i LS
 				saveUserData(wrongLetters.length, true);
+				emtyArray()
 			}
 		}
 		else {
@@ -191,17 +192,17 @@ document.addEventListener('keydown', (event) => {
 		}
 	}
 })
-})
+// })
 
 // initialize local storage with empty array of users
 let users = [];
 console.log('hej');
-localStorage.setItem('users', JSON.stringify(users));
+// localStorage.setItem('users', JSON.stringify(users));
 
 function saveUserData(score, won) {
 	let users = JSON.parse(localStorage.getItem('users'));
 	let currentUser = JSON.parse(localStorage.getItem('currentUser'));
-
+console.log('saveUserData1', users, currentUser);
 	if (won) {
 		currentUser.result = 'Vinst'
 	} else {
@@ -210,6 +211,7 @@ function saveUserData(score, won) {
 	currentUser.score = score;
 
 	users.push(currentUser);
+	console.log('saveUserData2', users);
 	localStorage.setItem('users', JSON.stringify(users));
 }
 
@@ -227,66 +229,3 @@ function saveUserData(score, won) {
 
 
 
-// import { storeName } from "./local-storage.js";
-
-
-// import wordList from './script/svenska-ord.json" assert { type: "json" };
-
-// Overlay win
-
-// varför funkar det bara i body?
-
-/* document.body.onload = addElement;
-
-function addElement() {
-  // create a new div element
-	const newDiv = document.createElement("div");
-
-  // and give it some content
-	const newContent = document.createTextNode("Grattis, du vann!");
-
-  // add the text node to the newly created div
-	newDiv.appendChild(newContent);
-
-  // add the newly created element and its content into the DOM
-	const currentDiv = document.getElementsByClassName("overlay-win");
-	document.body.insertBefore(newDiv, currentDiv);
-}
-
-// Overlay lose
-
-document.body.onload = addElement2;
-
-function addElement2() {
-  // create a new div element
-	const newDiv = document.createElement("div");
-
-  // and give it some content
-	const newContent = document.createTextNode("Du förlorade");
-
-  // add the text node to the newly created div
-	newDiv.appendChild(newContent);
-
-  // add the newly created element and its content into the DOM
-	const currentDiv = document.getElementsByClassName("overlay-lose");
-	document.body.insertBefore(newDiv, currentDiv);
-}
-
-// overlay if sats
-// if won = true
-function on() {
-	document.getElementsByClassName("overlay-win").style.display = "block";
-}
-// else
-function off() {
-	document.getElementsByClassName("overlay-lose").style.display = "block";
-} */
-
-
-
-// gör RandomValue till egen variabel , behövs?
-/* let element = document.createElement('p')
-	element.innerText = randomValue
-	element.className = '.random-words'
-	guessWordText.append(element)
- */

@@ -14,7 +14,7 @@ nameInput.addEventListener('keydown', function (event) {
 });
 
 nameInput.addEventListener('input', function () {
-	playButton.disabled =(this.value ==='');
+	playButton.disabled = (this.value ==='');
 });
 
 // lägg till en eventlistener för att klicka på knappen
@@ -198,7 +198,7 @@ statistics.addEventListener("click", function () {
     // event listener för att sortera efter poäng
     statisticsSorterPoints.addEventListener("click", function (event) {
         event.preventDefault();
-        users.sort((a, b) => (a.score < b.score) ? 1 : -1); // sort by points
+        users.sort((a, b) => (a.score > b.score) ? 1 : -1); // sort by points
         userList.innerHTML = '';
         users.forEach(user => {
             let userItem = document.createElement('li');

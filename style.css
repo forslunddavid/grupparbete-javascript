@@ -20,16 +20,26 @@ body{
 h1 {
 	margin-top: 1em;
 }
+.player-name{
+	background-color: antiquewhite;
+	/* height: 2em;  */
+	font-size: 1.1em;
+	margin-right: 1em;
+	
+}
 
 .button{
 	background-color: #4bc036;
 	border: 2px solid #20880e;
-	border-radius: 5px;
+	border-radius: 7px;
 	width: 7em;
-	height: 2em;
+	height: 2.7em;
 	margin: 1em;
 	cursor: pointer;
 	box-shadow: 0 0 2px 1px #4f89fc;
+	font-size: 1em;
+	margin: 2em;
+	
 }
 
 .new-game-button{

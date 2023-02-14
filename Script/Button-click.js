@@ -3,8 +3,9 @@
 // skapa referens till knappar och inputfält
 const playButton = document.querySelector("#button");
 const playbutton2 = document.querySelector("#button");
-const newGameButton = document.querySelector('.new-game-button');
+
 const nameInput = document.querySelector('.player-name');
+
 
 
 // regler för inputfält
@@ -16,6 +17,7 @@ nameInput.addEventListener('keydown', function (event) {
 nameInput.addEventListener('input', function () {
 	playButton.disabled =(this.value ==='');
 });
+
 
 // lägg till en eventlistener för att klicka på knappen
 
@@ -56,9 +58,6 @@ playbutton2.addEventListener("click", function () {
 		
 	});
 });
-
-
-
 
 
 

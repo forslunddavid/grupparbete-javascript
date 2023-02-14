@@ -1,6 +1,6 @@
 import { words } from "./ord.js"
 
-// buttons få dem att tömma och starta nytt spel testat function på linje 80, men den fungerar ej. toggla win/loose overlaysen med button click?
+// buttons få dem att tömma och starta nytt spel testat function på linje 80, men den fungerar ej. toggla win/lose overlaysen med button click?
 
 
 // hämta info från LS och skriva ut den i statistik och sortera
@@ -15,13 +15,9 @@ const letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm'
 const randomValue = randomWords[Math.floor(Math.random() * randomWords.length)]
 console.log(randomValue)
 const randomValueArray = [...randomValue]
-const guessedLetters = [];
+let guessedLetters = [];
 let wrongLetters = [];
 const answer = []
-
-
-console.log(randomValueArray)
-
 
 
 ///// funktioner /////
@@ -65,22 +61,15 @@ function renderWrongLetter(letter) {
 
 // Rita ut gubben
 
-  function showHangman() {
-	hangmanParts.forEach((part, index) => {
-	  const wrongGuess = wrongLetters.length;
-	  if (index -1 < wrongGuess) {
-		part.style.display = "block";
-	  }
-	//   else {
-	// 	part.style.display = "none";
-	//   }
-	});
-  }
-// försök till funktion som ska tömma wrongLetters, funkar inte
- function emtyArray(){
-	wrongLetters = []
- }
+function showHangman() {
+hangmanParts.forEach((part, index) => {
+	const wrongGuess = wrongLetters.length;
+	if (index -1 < wrongGuess) {
+	part.style.display = "block";
+	}
 
+});
+}
 
 // funktioner för att skapa overlays vid vinst/förlust
 
@@ -96,41 +85,47 @@ function createWinOverlay(){
 	winContent.className = ('content')
 
 		// Append the content to the overlay
-		winOverlay.appendChild(winContent);
-		winContent.appendChild(winButton);
+	winOverlay.appendChild(winContent);
+	winContent.appendChild(winButton);
 
 		 // Add event listener to the button
-    	winButton.addEventListener('click', function() {
+	winButton.addEventListener('click', function() {
         document.body.removeChild(winOverlay);
     });
-
+	winButton.addEventListener('click', () => {
+		location.reload();
+		return false;
+	})
 		// Append the overlay to the body
-		document.body.appendChild(winOverlay);
+	document.body.appendChild(winOverlay);
 	}
 
 
-	function createLooseOverlay(){
-		const looseOverlay = document.createElement("div");
-		const looseButton = document.createElement('button')
-		const looseContent = document.createElement('p')
+	function createLoseOverlay(){
+		const loseOverlay = document.createElement("div");
+		const loseButton = document.createElement('button')
+		const loseContent = document.createElement('p')
 
-		looseOverlay.className = ('overlay')
-		looseButton.className = ('new-game-button')
-		looseButton.innerText = ('Nytt spel')
-		looseContent.innerText = ('Tyvärr du förlorade! Det rätta order var: ' + randomValue)
-		looseContent.className = ('content')
+		loseOverlay.className = ('overlay')
+		loseButton.className = ('new-game-button')
+		loseButton.innerText = ('Nytt spel')
+		loseContent.innerText = ('Tyvärr du förlorade! Det rätta order var: ' + randomValue)
+		loseContent.className = ('content')
 
 			// Append the content to the overlay
-			looseOverlay.appendChild(looseContent);
-			looseContent.appendChild(looseButton);
+		loseOverlay.appendChild(loseContent);
+		loseContent.appendChild(loseButton);
 		 // Add event listener to the button
-    		looseButton.addEventListener('click', function() {
-        	document.body.removeChild(looseOverlay);
+		loseButton.addEventListener('click', function() {
+        	document.body.removeChild(loseOverlay);
     	});
-
+		loseButton.addEventListener('click', () => {
+			location.reload();
+			return false;
+		})
 
 			// Append the overlay to the body
-			document.body.appendChild(looseOverlay);
+		document.body.appendChild(loseOverlay);
 	}
 
 
@@ -163,7 +158,6 @@ document.addEventListener('keydown', (event) => {
 				createWinOverlay()
 				// spara undan spelarens resultat i LS
 				saveUserData(wrongLetters.length, true);
-				emtyArray()
 			}
 		}
 		else {
@@ -183,10 +177,10 @@ document.addEventListener('keydown', (event) => {
 				// när man förlorar
 
 				if (wrongLetters.length === 6) {
-					createLooseOverlay()
+					createLoseOverlay()
 					// spara undan spelarens resultat i LS
 					saveUserData(wrongLetters.length, false);
-					emtyArray()
+					
 				}
 			}
 		}
@@ -196,8 +190,7 @@ document.addEventListener('keydown', (event) => {
 
 // initialize local storage with empty array of users
 let users = [];
-console.log('hej');
-// localStorage.setItem('users', JSON.stringify(users));
+
 
 function saveUserData(score, won) {
 	let users = JSON.parse(localStorage.getItem('users'));

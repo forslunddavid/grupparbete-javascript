@@ -198,10 +198,36 @@ svg {
 	background-color: aqua;
 	color: hotpink;
 	list-style: none;
+
 }
 
 .user-item {
 	background-color:white;
 	color: black;
+	align-items: start;
+}
 
+.statistics-header {
+background-color: white;
+margin-bottom: 0.5em;
+}
+
+.statistics-sorter{
+margin: 0em 0.5em 0.5em 0.5em;
+background-color: white;
+}
+
+.menu-section {
+	display: flex;
+	flex-direction: row;
+	background-color: white;
+}
+
+ul {
+	text-align: start;
+	background-color: white;
+}
+
+li {
+	padding: 0.1em;
 }

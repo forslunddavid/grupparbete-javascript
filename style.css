@@ -20,12 +20,6 @@ body{
 h1 {
 	margin-top: 1em;
 }
-.player-name{
-	background-color: antiquewhite;
-	font-size: 1.1em;
-	margin-right: 1em;
-	
-}
 
 .welcome-text{
 	font-size: 2em;
@@ -34,6 +28,44 @@ h1 {
 	margin-top:3em;
 }
 
+.welcome {
+	background-color: #bed2fa;
+	border-color: #4f89fc;
+	border-style: solid;
+    border-width: 2px;
+	border-radius: 10px;
+    width: 90%;
+	height: 42vh;
+	align-self: center;
+	display: block;
+	box-shadow: 0 0 5px 5px #ad9f9f ;
+    }
+
+.welcome-hidden {
+	border-color: #020005;
+	border-style: solid;
+	border-width: 3px;
+	border-radius: 10px;
+	width: 90%;
+	height: 42vh;
+	align-self: center;
+	display: none;
+}
+
+	
+.welcome > p {
+	font-size: 1.2rem;
+	background-color: #bed2fa;
+	color: #181866;
+	margin:2em 0;
+}
+
+.player-name{
+	background-color: antiquewhite;
+	font-size: 1.1em;
+	margin-right: 1em;
+	
+}
 .button{
 	background-color: #8dc084;
 	border: 2px solid #20880e;
@@ -76,7 +108,8 @@ h1 {
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
-	background-color : #ffffff;
+	background-color: #bed2fa;
+	color: #181866;
 	padding : 20px;
 	border-radius : 10px;
 	box-shadow : 0 0 10px rgba(0, 0, 0, 0.5);
@@ -162,43 +195,9 @@ svg {
 	font-size: 2rem;
 }
 
-
 .invisible {
 	display: none;
 
-}
-
-.welcome {
-	background-color: #bed2fa;
-	border-color: #4f89fc;
-	border-style: solid;
-    border-width: 2px;
-	border-radius: 10px;
-    width: 90%;
-	height: 42vh;
-	align-self: center;
-	display: block;
-	box-shadow: 0 0 5px 5px #ad9f9f ;
-    }
-
-.welcome-hidden {
-	border-color: #020005;
-	border-style: solid;
-	border-width: 3px;
-	border-radius: 10px;
-	width: 90%;
-	height: 42vh;
-	align-self: center;
-	display: none;
-}
-
-
-	
-.welcome > p {
-	font-size: 1.2rem;
-	background-color: #bed2fa;
-	color: #181866;
-	margin:2em 0;
 }
 
 .user-item {
@@ -219,7 +218,6 @@ svg {
 	color: #181866;
 	font-weight: 700;
 }
-
 
 .menu-section {
 	display: flex;
@@ -248,4 +246,13 @@ li {
 			height: 565px;
 			margin-top: 2em;
 		}
+
+	.statistics-content{
+		max-width: 35em;
+		
+	}	
+	.welcome{
+		max-width: 35em;
+	}		
 }
+

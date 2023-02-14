@@ -1,9 +1,7 @@
-//
 
 // skapa referens till knappar och inputfält
 const playButton = document.querySelector("#button");
 const playbutton2 = document.querySelector("#button");
-const newGameButton = document.querySelector('.new-game-button');
 const nameInput = document.querySelector('.player-name');
 
 
@@ -119,7 +117,7 @@ statistics.addEventListener("click", function () {
     // event listener för att sortera efter poäng
     statisticsSorterPoints.addEventListener("click", function (event) {
         event.preventDefault();
-        users.sort((a, b) => (a.score > b.score) ? 1 : -1); // sort by points
+        users.sort((a, b) => (a.score > b.score) ? 1 : -1); // sortera efter poäng
         userList.innerHTML = '';
         users.forEach(user => {
             let userItem = document.createElement('li');
@@ -132,7 +130,7 @@ statistics.addEventListener("click", function () {
     // event listener för att sortera efter senaste
     statisticsSorterName.addEventListener("click", function (event) {
         event.preventDefault();
-        users.sort((a, b) => (a.name < b.name) ? 1 : -1); // sort by latest
+        users.sort((a, b) => (a.name < b.name) ? 1 : -1); // sortera efter senast spelad
         userList.innerHTML = '';
         users.forEach(user => {
             let userItem = document.createElement('li');
@@ -143,3 +141,5 @@ statistics.addEventListener("click", function () {
     });
 
 });
+
+

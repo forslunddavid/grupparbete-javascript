@@ -1,10 +1,5 @@
 import { words } from "./ord.js"
 
-// buttons få dem att tömma och starta nytt spel testat function på linje 80, men den fungerar ej. toggla win/lose overlaysen med button click?
-
-
-// hämta info från LS och skriva ut den i statistik och sortera
-/* window.addEventListener('click',function(){ */
 
 // variabler för själva spelet
 const randomWords = words
@@ -29,7 +24,6 @@ function makeAnswerArray() {
 	for (let i = 0; i < randomValueArray.length; i++) {
 		answer.push("");
 	}
-	// console.log(answer);
 }
 
 // skapa linjer till slumpat ord
@@ -42,7 +36,6 @@ function renderLines() {
 		const underLine = document.createElement('p')
 		underLine.innerText = (answer[lines])
 		underLine.className = ('under-line')
-
 		guessWord.append(underLine)
 
 	}
@@ -54,7 +47,6 @@ function renderWrongLetter(letter) {
 	let wrongLetter = document.createElement('p')
 	wrongLetter.innerText = (letter)
 	wrongLetter.className = ('wrong-letter-text')
-
 	wrongLetterContainer.insertAdjacentElement('afterbegin', wrongLetter);
 	// console.log(wrongLetter)
 }
@@ -62,13 +54,13 @@ function renderWrongLetter(letter) {
 // Rita ut gubben
 
 function showHangman() {
-hangmanParts.forEach((part, index) => {
-	const wrongGuess = wrongLetters.length;
-	if (index -1 < wrongGuess) {
-	part.style.display = "block";
-	}
+	hangmanParts.forEach((part, index) => {
+		const wrongGuess = wrongLetters.length;
+		if (index -0  < wrongGuess) {
+		part.style.display = "block";
+		}
 
-});
+	});
 }
 
 // funktioner för att skapa overlays vid vinst/förlust
@@ -84,11 +76,11 @@ function createWinOverlay(){
 	winContent.innerText = ('Grattis du vann! Du gissade ' + guessedLetters.length + ' gånger')
 	winContent.className = ('content')
 
-		// Append the content to the overlay
+		// Lägg till content till overlay
 	winOverlay.appendChild(winContent);
 	winContent.appendChild(winButton);
 
-		 // Add event listener to the button
+		 // Lägg till event listener till knappen
 	winButton.addEventListener('click', function() {
         document.body.removeChild(winOverlay);
     });
@@ -96,7 +88,7 @@ function createWinOverlay(){
 		location.reload();
 		return false;
 	})
-		// Append the overlay to the body
+		// Lägg till overlay till body
 	document.body.appendChild(winOverlay);
 	}
 
@@ -112,10 +104,10 @@ function createWinOverlay(){
 		loseContent.innerText = ('Tyvärr du förlorade! Det rätta order var: ' + randomValue)
 		loseContent.className = ('content')
 
-			// Append the content to the overlay
+			// Lägg till content till overlay
 		loseOverlay.appendChild(loseContent);
 		loseContent.appendChild(loseButton);
-		 // Add event listener to the button
+		 // Lägg till event listener till button
 		loseButton.addEventListener('click', function() {
         	document.body.removeChild(loseOverlay);
     	});
@@ -124,7 +116,7 @@ function createWinOverlay(){
 			return false;
 		})
 
-			// Append the overlay to the body
+			// Lägg till overlay till body
 		document.body.appendChild(loseOverlay);
 	}
 
@@ -141,7 +133,7 @@ document.addEventListener('keydown', (event) => {
 		if (correctWordAsArray.includes(guessedLetter) && !guessedLetters.includes(guessedLetter)) {
 			// lägg in gissade bokstaven bland gissade bokstäver
 			guessedLetters.push(guessedLetter);
-			// console.log(guessedLetters);
+			console.log(guessedLetters);
 
 			// hitta rätt index i ordet för gissade bokstaven/bokstäverna
 			// console.log(correctWordAsArray)
@@ -151,7 +143,7 @@ document.addEventListener('keydown', (event) => {
 				}
 			}
 			renderLines();
-			// console.log(correctWordAsArray, answer);
+			console.log(correctWordAsArray, answer);
 
 			// när man vinner
 			if (JSON.stringify(correctWordAsArray) == JSON.stringify(answer)) {
@@ -161,17 +153,19 @@ document.addEventListener('keydown', (event) => {
 			}
 		}
 		else {
-			showHangman()
+			
 			// förebygger att samma fel bokstav går att gissa på flera gånger
-			if (!guessedLetters.includes(guessedLetter)) {
+			if (!correctWordAsArray.includes(guessedLetter) && !guessedLetters.includes(guessedLetter)) {
 				guessedLetters.push(guessedLetter);
 				wrongLetters.push(guessedLetter);
+				showHangman()
 				wrongLetterContainer.innerHTML = "";
 
 
 				for (let y = 0; y < wrongLetters.length; y++) {
-					console.log(wrongLetters[y]);
+					
 					renderWrongLetter(wrongLetters[y]);
+					console.log(wrongLetters[y]);
 				}
 
 				// när man förlorar
@@ -186,14 +180,14 @@ document.addEventListener('keydown', (event) => {
 		}
 	}
 })
-// })
 
-// initialize local storage with empty array of users
-let users = [];
+
+// Initiera local storage med tom array 'users'
+
 
 
 function saveUserData(score, won) {
-	let users = JSON.parse(localStorage.getItem('users'));
+	let users = JSON.parse(localStorage.getItem('users') || '[]');
 	let currentUser = JSON.parse(localStorage.getItem('currentUser'));
 console.log('saveUserData1', users, currentUser);
 	if (won) {

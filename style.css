@@ -71,11 +71,20 @@ h1 {
     border-radius: 7px;
     width: 7em;
     height: 2.7em;
-    margin: 1em;
     cursor: pointer;
     box-shadow: 0 0 2px 1px #4f89fc;
     font-size: 1em;
-    margin: 0 2em;
+    margin: 1em 2em;
+}
+
+.button:hover{
+    box-shadow: 0 0 8px 2px #20880e;
+}
+
+.button:active{
+    box-shadow: 0 0 2px 1px #4f89fc;
+    width: 6.8em;
+    height: 2.5em;
 }
 
 .new-game-button {
@@ -87,6 +96,16 @@ h1 {
     margin: 1em;
     cursor: pointer;
     box-shadow: 0 0 2px 1px #4f89fc;
+}
+
+.new-game-button:hover{
+    box-shadow: 0 0 8px 2px #20880e;
+}
+
+.new-game-button:active{
+    box-shadow: 0 0 2px 1px #4f89fc;
+    width: 4.8em;
+    height: 1.8em;
 }
 
 .overlay {
@@ -233,6 +252,7 @@ ul {
 
 li {
     padding: 0.3em;
+    text-align: start;
 }
 
 @media screen and (min-width: 520px) {

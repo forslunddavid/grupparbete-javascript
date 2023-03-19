@@ -83,8 +83,7 @@ h1 {
 
 .button:active{
     box-shadow: 0 0 2px 1px #4f89fc;
-    width: 6.8em;
-    height: 2.5em;
+    
 }
 
 .new-game-button {
@@ -104,8 +103,7 @@ h1 {
 
 .new-game-button:active{
     box-shadow: 0 0 2px 1px #4f89fc;
-    width: 4.8em;
-    height: 1.8em;
+    
 }
 
 .overlay {

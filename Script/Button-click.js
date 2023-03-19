@@ -2,6 +2,7 @@
 const playButton = document.querySelector("#button");
 const playbutton2 = document.querySelector("#button");
 const nameInput = document.querySelector(".player-name");
+const newGameButton = document.querySelector(".header-game-button");
 
 // regler för inputfält
 
@@ -13,7 +14,13 @@ nameInput.addEventListener("input", function () {
     playButton.disabled = this.value === "";
 });
 
-// lägg till en eventlistener för att klicka på knappen
+// lägg till en eventlistener för att klicka på knappar
+
+newGameButton.addEventListener('click', () => {
+        location.reload();
+        return false;
+    });
+
 
 playButton.addEventListener("click", function () {
     // välj alla divar med stil invisible

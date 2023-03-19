@@ -187,7 +187,7 @@ document.addEventListener('keydown', (event) => {
 
 
 function saveUserData(score, won) {
-	let users = JSON.parse(localStorage.getItem('users')  || '[]');
+	let users = JSON.parse(localStorage.getItem('users') || '[]');
 	let currentUser = JSON.parse(localStorage.getItem('currentUser'));
 console.log('saveUserData1', users, currentUser);
 	if (won) {

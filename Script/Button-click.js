@@ -1,10 +1,13 @@
+export{playButton}
+
+
 // skapa referens till knappar och inputfält
+const nameInput = document.querySelector(".player-name");
 const playButton = document.querySelector("#button");
 const playbutton2 = document.querySelector("#button");
-const nameInput = document.querySelector(".player-name");
 const newGameButton = document.querySelector(".header-game-button");
 
-// regler för inputfält
+// lägg till en eventlistener för att klicka på knappar
 
 nameInput.addEventListener("keydown", function (event) {
     event.stopPropagation();
@@ -14,25 +17,10 @@ nameInput.addEventListener("input", function () {
     playButton.disabled = this.value === "";
 });
 
-// lägg till en eventlistener för att klicka på knappar
-
 newGameButton.addEventListener('click', () => {
         location.reload();
         return false;
     });
-
-
-playButton.addEventListener("click", function () {
-    // välj alla divar med stil invisible
-
-    const divs = document.querySelectorAll(".invisible");
-    console.log("click", divs);
-    // Dölj visa div
-
-    divs.forEach(function (div) {
-        div.classList.toggle("invisible");
-    });
-});
 
 playbutton2.addEventListener("click", function () {
     // ta namnet från input och spara i Local Storage

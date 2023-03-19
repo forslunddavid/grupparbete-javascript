@@ -1,4 +1,5 @@
 import { words } from "./ord.js";
+import{playButton} from "./Button-click.js";
 
 // variabler för själva spelet
 const randomWords = words;
@@ -144,7 +145,22 @@ function createLoseOverlay() {
     document.body.appendChild(loseOverlay);
 }
 
+
 // kod för att gissa bokstäver, spara rätt/fel
+
+playButton.addEventListener("click", function () {
+    // välj alla divar med stil invisible
+
+    const divs = document.querySelectorAll(".invisible");
+    console.log("click", divs);
+    // Dölj visa div
+
+    divs.forEach(function (div) {
+        div.classList.toggle("invisible");
+    });
+
+
+
 document.addEventListener("keydown", (event) => {
     let correctWordAsArray = randomValueArray;
     let guessedLetter = event.key;
@@ -204,6 +220,8 @@ document.addEventListener("keydown", (event) => {
     }
 });
 
+
+});
 // Initiera local storage med tom array 'users'
 
 function saveUserData(score, won) {

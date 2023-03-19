@@ -83,7 +83,7 @@ h1 {
 
 .button:active{
     box-shadow: 0 0 2px 1px #4f89fc;
-    
+
 }
 
 .new-game-button {
@@ -103,7 +103,7 @@ h1 {
 
 .new-game-button:active{
     box-shadow: 0 0 2px 1px #4f89fc;
-    
+
 }
 
 .overlay {
@@ -175,11 +175,12 @@ svg {
 
 .wrong-letter {
     display: flex;
+    flex-wrap:wrap;
     justify-content: center;
     align-items: center;
     height: 2em;
     width: fit-content;
-    padding: 0 8em;
+    padding: 0 0.1em;
     margin: 0 auto;
 }
 

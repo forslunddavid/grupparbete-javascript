@@ -34,7 +34,6 @@ playbutton2.addEventListener("click", function () {
         name: newUserName,
         score: 0,
         result: "no game played",
-        lastPlayed: new Date().getTime(),
     };
 
     localStorage.setItem("currentUser", JSON.stringify(currentUser));
@@ -51,13 +50,7 @@ playbutton2.addEventListener("click", function () {
 
 ////////////////////////////////////////////////////////////////
 const statistics = document.querySelector(".statistics");
-let users = JSON.parse(localStorage.getItem("users")) || [];
-users = users.map((user) => {
-    if (!user.lastPlayed) {
-        user.lastPlayed = new Date(0).getTime();
-    }
-    return user;
-});
+let users = JSON.parse(localStorage.getItem("users"));
 
 statistics.addEventListener("click", function () {
     // Skapa overlay och content
@@ -88,7 +81,7 @@ statistics.addEventListener("click", function () {
     // skapa ul och sortera på senaste
     let userList = document.createElement("ol");
     userList.className = "user-list";
-    users.sort((a, b) => (a.lastPlayed > b.lastPlayed ? -1 : 1));
+    users.sort((a, b) => (a.name < b.name ? 1 : -1)); // sort by latest
     users.forEach((user) => {
         let userItem = document.createElement("li");
         userItem.className = "user-item";
@@ -128,7 +121,7 @@ statistics.addEventListener("click", function () {
     // event listener för att sortera efter senaste
     statisticsSorterName.addEventListener("click", function (event) {
         event.preventDefault();
-        users.sort((a, b) => (a.lastPlayed > b.lastPlayed ? -1 : 1));
+        users.sort((a, b) => (a.name < b.name ? -1 : 1)); // sortera efter senast spelad
         userList.innerHTML = "";
         users.forEach((user) => {
             let userItem = document.createElement("li");
@@ -138,3 +131,5 @@ statistics.addEventListener("click", function () {
         });
     });
 });
+
+
